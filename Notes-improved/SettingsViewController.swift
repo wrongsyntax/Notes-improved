@@ -20,8 +20,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet private var maxLabel: UILabel!
     @IBOutlet private var minSliderOutlet: UISlider!
     @IBOutlet private var maxSliderOutlet: UISlider!
+    @IBOutlet private var sysDoubleTapToggleOutlet: UISwitch!
     
-    
+    // MARK: IBAction Definitions
     @IBAction func resetAllBtn(_ sender: Any) {
         let confirmationAlert = UIAlertController(
             title: "Reset all settings?",
@@ -37,6 +38,13 @@ class SettingsViewController: UIViewController {
         self.present(confirmationAlert, animated: true)
     }
     
+    @IBAction func sysDoubleTapToggle(_ sender: UISwitch) {
+        if sender.isOn {
+            updateUseSysDoubleTap(newValue: true)
+        } else if !sender.isOn {
+            updateUseSysDoubleTap(newValue: false)
+        }
+    }
     
     @IBAction func minSlider(_ sender: UISlider) {
         let currentVal: CGFloat = CGFloat(sender.value)
@@ -59,6 +67,10 @@ class SettingsViewController: UIViewController {
     private func updateMaxForceValue(newValue: CGFloat) {
         UserDefaults.maxForceValue = newValue
     }
+    
+    private func updateUseSysDoubleTap(newValue: Bool) {
+        UserDefaults.useSystemDoubleTap = newValue
+    }
 
     /*
     // MARK: - Navigation
@@ -70,6 +82,7 @@ class SettingsViewController: UIViewController {
     }
     */
     
+    // TODO: implement function that checks type of UIView and uses `for each` to set values to UserDefault
     private func loadDefaults() {
         /// Load defaults and show them
         // Pressure bound sliders:
@@ -77,6 +90,9 @@ class SettingsViewController: UIViewController {
         minLabel.text = String(format: "%.3f", UserDefaults.minForceValue)
         maxSliderOutlet.value = Float(UserDefaults.maxForceValue)
         maxLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
+        
+        // System double-tap setting toggle:
+        sysDoubleTapToggleOutlet.isOn = UserDefaults.useSystemDoubleTap
     }
 
 }
@@ -105,6 +121,9 @@ extension UserDefaults {
     
     @UserDefault(key: "max_force_value", defaultValue: 5.0)
     static var maxForceValue: CGFloat
+    
+    @UserDefault(key: "use_system_double_tap", defaultValue: true)
+    static var useSystemDoubleTap: Bool
     
     static func resetDefaults() {
             if let bundleID = Bundle.main.bundleIdentifier {

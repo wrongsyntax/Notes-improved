@@ -22,6 +22,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
         clearGauges()
         minForceLabel.text = String(format: "%.3f", UserDefaults.minForceValue)
         maxForceLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
+        doubleTapSettingLabel.text = String(UserDefaults.useSystemDoubleTap)
         
         doubleTapLabel.alpha = 0
     }
@@ -35,6 +36,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     @IBOutlet private var maxForceLabel: UILabel!
     @IBOutlet private var minForceLabel: UILabel!
     @IBOutlet private var doubleTapLabel: UILabel!
+    @IBOutlet private var doubleTapSettingLabel: UILabel!
     
     @IBOutlet private var gaugeLabelCollection: [UILabel]!
     
@@ -59,11 +61,12 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     
     // MARK: Updating Gauges
     private func updateGauges(with touch: UITouch) {
-        // TODO: Display min and max values that are stored in UserDefaults
-        forceLabel.text = String(format: "%.3f", boundForceValue(with: touch))
+        // Update settings labels
         minForceLabel.text = String(format: "%.3f", UserDefaults.minForceValue)
         maxForceLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
+        doubleTapSettingLabel.text = String(UserDefaults.useSystemDoubleTap)
         
+        forceLabel.text = String(format: "%.3f", boundForceValue(with: touch))
         azimuthLabel.text = String(format: "%.3f", touch.azimuthAngle(in: view)) + " rad"
         altitudeLabel.text = String(format: "%.3f", touch.altitudeAngle) + " rad"
         
@@ -87,19 +90,23 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     // MARK: Pencil Interaction
     @available(iOS 12.1, *)
     func pencilInteractionDidTap(_ interaction: UIPencilInteraction) {
-        switch UIPencilInteraction.preferredTapAction {
-        case .switchPrevious:
-            showPencilInteraction(label: doubleTapLabel, str: "Switch Previous")
-        case .showColorPalette:
-            showPencilInteraction(label: doubleTapLabel, str: "Show Colour Palette")
-        case .showInkAttributes:
-            showPencilInteraction(label: doubleTapLabel, str: "Show Ink Attributes")
-        case .switchEraser:
-            showPencilInteraction(label: doubleTapLabel, str: "Switch Eraser")
-        case .ignore:
-            showPencilInteraction(label: doubleTapLabel, str: "Ignored")
-        default:
-            showPencilInteraction(label: doubleTapLabel, str: "Default Case")
+        if UserDefaults.useSystemDoubleTap {
+            switch UIPencilInteraction.preferredTapAction {
+            case .switchPrevious:
+                showPencilInteraction(label: doubleTapLabel, str: "Switch Previous")
+            case .showColorPalette:
+                showPencilInteraction(label: doubleTapLabel, str: "Show Colour Palette")
+            case .showInkAttributes:
+                showPencilInteraction(label: doubleTapLabel, str: "Show Ink Attributes")
+            case .switchEraser:
+                showPencilInteraction(label: doubleTapLabel, str: "Switch Eraser")
+            case .ignore:
+                showPencilInteraction(label: doubleTapLabel, str: "Ignored")
+            default:
+                showPencilInteraction(label: doubleTapLabel, str: "Default Case")
+            }
+        } else {
+            showPencilInteraction(label: doubleTapLabel, str: "Custom")
         }
     }
     

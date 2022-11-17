@@ -95,6 +95,13 @@
                                 <color key="textColor" systemColor="systemYellowColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biH-vT-zbn">
+                                <rect key="frame" x="50" y="512" width="421" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="31"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-v0-egq">
                                 <rect key="frame" x="35" y="136" width="240" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -138,11 +145,18 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biH-vT-zbn">
-                                <rect key="frame" x="50" y="512" width="421" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System Setting:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-nd-pxO">
+                                <rect key="frame" x="232" y="484" width="109" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="31"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="true" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-SU-K7y">
+                                <rect key="frame" x="349" y="474" width="62" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" red="0.50329135583371709" green="0.2365453941810621" blue="0.64818341804273194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -156,6 +170,7 @@
                         <outlet property="altitudeLabel" destination="32Y-mh-c4B" id="AWy-rF-dKy"/>
                         <outlet property="azimuthLabel" destination="vXZ-z8-v5J" id="R73-Rf-QdM"/>
                         <outlet property="doubleTapLabel" destination="biH-vT-zbn" id="xpB-D1-Acf"/>
+                        <outlet property="doubleTapSettingLabel" destination="Lvh-SU-K7y" id="ey8-BI-nO5"/>
                         <outlet property="forceLabel" destination="21w-AT-g9e" id="G2X-fn-fnP"/>
                         <outlet property="locationLabel" destination="v5h-uj-NcO" id="R5P-cc-Qk9"/>
                         <outlet property="maxForceLabel" destination="GhY-Jg-Rh3" id="pR7-wR-s0q"/>
@@ -238,6 +253,20 @@
                                     <action selector="resetAllBtn:" destination="obA-Ph-sRm" eventType="touchUpInside" id="buQ-c3-3Vz"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Use system double-tap setting" translatesAutoresizingMaskIntoConstraints="NO" id="YdY-Ma-6k2">
+                                <rect key="frame" x="378" y="318" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sysDoubleTapToggle:" destination="obA-Ph-sRm" eventType="valueChanged" id="xLd-ZZ-Wbu"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use system double-tap setting:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrE-Ga-yht">
+                                <rect key="frame" x="70" y="323" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qp7-pf-A0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -250,6 +279,7 @@
                         <outlet property="maxSliderOutlet" destination="qAF-f7-mLx" id="tUg-5u-lZy"/>
                         <outlet property="minLabel" destination="jWV-Xo-uLu" id="fe3-89-af3"/>
                         <outlet property="minSliderOutlet" destination="J4u-Y2-czS" id="UvQ-8P-cRt"/>
+                        <outlet property="sysDoubleTapToggleOutlet" destination="YdY-Ma-6k2" id="yiZ-zo-6qQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvi-5g-ePv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
