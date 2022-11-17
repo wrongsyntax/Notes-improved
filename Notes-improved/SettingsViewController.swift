@@ -22,6 +22,22 @@ class SettingsViewController: UIViewController {
     @IBOutlet private var maxSliderOutlet: UISlider!
     
     
+    @IBAction func resetAllBtn(_ sender: Any) {
+        let confirmationAlert = UIAlertController(
+            title: "Reset all settings?",
+            message: "This action cannot be undone.",
+            preferredStyle: .alert)
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        confirmationAlert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: { _ in
+            UserDefaults.resetDefaults()
+            self.loadDefaults()
+        }))
+        
+        self.present(confirmationAlert, animated: true)
+    }
+    
+    
     @IBAction func minSlider(_ sender: UISlider) {
         let currentVal: CGFloat = CGFloat(sender.value)
         updateMinForceValue(newValue: currentVal)
@@ -89,4 +105,10 @@ extension UserDefaults {
     
     @UserDefault(key: "max_force_value", defaultValue: 5.0)
     static var maxForceValue: CGFloat
+    
+    static func resetDefaults() {
+            if let bundleID = Bundle.main.bundleIdentifier {
+                UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            }
+        }
 }
