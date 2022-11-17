@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--Debug-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Debug" title="Debug" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DebugViewController" customModule="Notes_improved_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Debug" title="Debug" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DebugViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,14 +102,14 @@
                                 <rect key="frame" x="254" y="174" width="62" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                <color key="textColor" red="0.1305437980824537" green="0.50559427280618685" blue="0.22765348587557144" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="MaxValColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fht-27-6cS">
                                 <rect key="frame" x="172" y="174" width="62" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                <color key="textColor" red="0.1305437980824537" green="0.50559427280618685" blue="0.22765348587557144" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="MinValColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsu-Xh-wuy">
@@ -154,25 +155,81 @@
         <!--Settings-->
         <scene sceneID="UAj-Bm-4fk">
             <objects>
-                <viewController title="Settings" id="obA-Ph-sRm" customClass="SettingsViewController" customModule="Notes_improved_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="obA-Ph-sRm" customClass="SettingsViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVs-ww-XWJ">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="J4u-Y2-czS">
+                                <rect key="frame" x="68" y="103" width="276" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="MinValColour"/>
+                                <imageReference key="minimumValueImage" image="decrease.quotelevel" catalog="system" symbolScale="medium"/>
+                                <imageReference key="maximumValueImage" image="increase.quotelevel" catalog="system" symbolScale="medium"/>
+                                <connections>
+                                    <action selector="minSlider:" destination="obA-Ph-sRm" eventType="valueChanged" id="N50-Ss-Cad"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pressure Sensitivity Lower Bound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejB-Yq-005">
+                                <rect key="frame" x="70" y="74" width="253" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="2.5" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="qAF-f7-mLx">
+                                <rect key="frame" x="68" y="213" width="276" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="MaxValColour"/>
+                                <imageReference key="minimumValueImage" image="decrease.quotelevel" catalog="system" symbolScale="medium"/>
+                                <imageReference key="maximumValueImage" image="increase.quotelevel" catalog="system" symbolScale="medium"/>
+                                <connections>
+                                    <action selector="maxSlider:" destination="obA-Ph-sRm" eventType="valueChanged" id="YLe-UY-ZhU"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pressure Sensitivity Upper Bound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tE-aI-xJ1">
+                                <rect key="frame" x="70" y="184" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWV-Xo-uLu">
+                                <rect key="frame" x="370" y="99" width="62" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" name="MinValColour"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7u-DY-NPs">
+                                <rect key="frame" x="370" y="209" width="62" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" name="MaxValColour"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Qp7-pf-A0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="Bs3-Wl-mGW">
                         <imageReference key="image" image="gear" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="maxLabel" destination="t7u-DY-NPs" id="hZZ-HI-clj"/>
+                        <outlet property="maxSliderOutlet" destination="qAF-f7-mLx" id="tUg-5u-lZy"/>
+                        <outlet property="minLabel" destination="jWV-Xo-uLu" id="fe3-89-af3"/>
+                        <outlet property="minSliderOutlet" destination="J4u-Y2-czS" id="UvQ-8P-cRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvi-5g-ePv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="760"/>
+            <point key="canvasLocation" x="142.88135593220341" y="759.51219512195121"/>
         </scene>
         <!--Canvas-->
         <scene sceneID="5bi-PO-qVC">
             <objects>
-                <viewController title="Canvas" id="Brc-cS-MYF" customClass="CanvasViewController" customModule="Notes_improved_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Canvas" id="Brc-cS-MYF" customClass="CanvasViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tcp-7w-Qzg">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,11 +266,19 @@
     </scenes>
     <color key="tintColor" name="AccentColor"/>
     <resources>
+        <image name="decrease.quotelevel" catalog="system" width="94" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="increase.quotelevel" catalog="system" width="128" height="106"/>
         <image name="ladybug" catalog="system" width="128" height="122"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.067000001668930054" green="0.68199998140335083" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MaxValColour">
+            <color red="0.062745098039215685" green="0.52549019607843139" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MinValColour">
+            <color red="0.6940000057220459" green="0.36100000143051147" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

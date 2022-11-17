@@ -11,9 +11,27 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateMinForceValue(newValue: 0.1)
-        updateMaxForceValue(newValue: 3)
-        // Do any additional setup after loading the view.
+        
+        loadDefaults()
+    }
+    
+    // MARK: IBOutlet Definitions
+    @IBOutlet private var minLabel: UILabel!
+    @IBOutlet private var maxLabel: UILabel!
+    @IBOutlet private var minSliderOutlet: UISlider!
+    @IBOutlet private var maxSliderOutlet: UISlider!
+    
+    
+    @IBAction func minSlider(_ sender: UISlider) {
+        let currentVal: CGFloat = CGFloat(sender.value)
+        updateMinForceValue(newValue: currentVal)
+        minLabel.text = String(format: "%.3f", currentVal)
+    }
+ 
+    @IBAction func maxSlider(_ sender: UISlider) {
+        let currentVal: CGFloat = CGFloat(sender.value)
+        updateMaxForceValue(newValue: currentVal)
+        maxLabel.text = String(format: "%.3f", currentVal)
     }
     
     // MARK: Update Defaults
@@ -35,6 +53,15 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func loadDefaults() {
+        /// Load defaults and show them
+        // Pressure bound sliders:
+        minSliderOutlet.value = Float(UserDefaults.minForceValue)
+        minLabel.text = String(format: "%.3f", UserDefaults.minForceValue)
+        maxSliderOutlet.value = Float(UserDefaults.maxForceValue)
+        maxLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
+    }
 
 }
 
