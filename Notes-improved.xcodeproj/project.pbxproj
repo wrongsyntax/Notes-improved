@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86A443C2292609C4004F9ED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A443C1292609C4004F9ED6 /* UIView.swift */; };
 		86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E542924C8D300063B8F /* AppDelegate.swift */; };
 		86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E562924C8D300063B8F /* SceneDelegate.swift */; };
 		86EE0E592924C8D300063B8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E582924C8D300063B8F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86A443C1292609C4004F9ED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		86EE0E512924C8D300063B8F /* Notes-improved.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-improved.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EE0E542924C8D300063B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EE0E562924C8D300063B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +71,9 @@
 				86EE0E682924C97400063B8F /* CanvasViewController.swift */,
 				86EE0E6C2924C98100063B8F /* SettingsViewController.swift */,
 				86EE0E5A2924C8D300063B8F /* Main.storyboard */,
-				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
 				86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */,
+				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
+				86A443C1292609C4004F9ED6 /* UIView.swift */,
 				86EE0E622924C8D800063B8F /* Info.plist */,
 			);
 			path = "Notes-improved";
@@ -150,6 +153,7 @@
 				86EE0E692924C97400063B8F /* CanvasViewController.swift in Sources */,
 				86EE0E592924C8D300063B8F /* ViewController.swift in Sources */,
 				86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */,
+				86A443C2292609C4004F9ED6 /* UIView.swift in Sources */,
 				86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */,
 				86EE0E6B2924C97A00063B8F /* DebugViewController.swift in Sources */,
 				86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */,

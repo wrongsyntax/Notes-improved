@@ -7,14 +7,23 @@
 
 import UIKit
 
-class DebugViewController: UIViewController {
+
+class DebugViewController: UIViewController, UIPencilInteractionDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 12.1, *) {
+            let pencilInteraction = UIPencilInteraction()
+            pencilInteraction.delegate = self
+            view.addInteraction(pencilInteraction)
+        }
+        
         clearGauges()
         minForceLabel.text = String(format: "%.3f", UserDefaults.minForceValue)
         maxForceLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
+        
+        doubleTapLabel.alpha = 0
     }
     
     // MARK: IBOutlet definitions
@@ -25,6 +34,7 @@ class DebugViewController: UIViewController {
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var maxForceLabel: UILabel!
     @IBOutlet private var minForceLabel: UILabel!
+    @IBOutlet private var doubleTapLabel: UILabel!
     
     @IBOutlet private var gaugeLabelCollection: [UILabel]!
     
@@ -45,22 +55,6 @@ class DebugViewController: UIViewController {
         touches.forEach { (touch) in
             clearGauges()
         }
-    }
-    
-    private func boundForceValue(with touch: UITouch) -> CGFloat {
-        var boundedForceValue: CGFloat = touch.force
-        let minValue: CGFloat = UserDefaults.minForceValue
-        let maxValue: CGFloat = UserDefaults.maxForceValue
-        
-        if touch.type == .pencil {
-            if boundedForceValue > maxValue {
-                boundedForceValue = maxValue
-            } else if boundedForceValue < minValue {
-                boundedForceValue = minValue
-            }
-        }
-        
-        return boundedForceValue
     }
     
     // MARK: Updating Gauges
@@ -90,10 +84,52 @@ class DebugViewController: UIViewController {
         }
     }
     
+    // MARK: Pencil Interaction
+    @available(iOS 12.1, *)
+    func pencilInteractionDidTap(_ interaction: UIPencilInteraction) {
+        switch UIPencilInteraction.preferredTapAction {
+        case .switchPrevious:
+            showPencilInteraction(label: doubleTapLabel, str: "Switch Previous")
+        case .showColorPalette:
+            showPencilInteraction(label: doubleTapLabel, str: "Show Colour Palette")
+        case .showInkAttributes:
+            showPencilInteraction(label: doubleTapLabel, str: "Show Ink Attributes")
+        case .switchEraser:
+            showPencilInteraction(label: doubleTapLabel, str: "Switch Eraser")
+        case .ignore:
+            showPencilInteraction(label: doubleTapLabel, str: "Ignored")
+        default:
+            showPencilInteraction(label: doubleTapLabel, str: "Default Case")
+        }
+    }
+    
+    // MARK: Convenience
     private func clearGauges() {
         gaugeLabelCollection.forEach { (label) in
             label.text = "***"
         }
+    }
+    
+    private func boundForceValue(with touch: UITouch) -> CGFloat {
+        var boundedForceValue: CGFloat = touch.force
+        let minValue: CGFloat = UserDefaults.minForceValue
+        let maxValue: CGFloat = UserDefaults.maxForceValue
+        
+        if touch.type == .pencil {
+            if boundedForceValue > maxValue {
+                boundedForceValue = maxValue
+            } else if boundedForceValue < minValue {
+                boundedForceValue = minValue
+            }
+        }
+        
+        return boundedForceValue
+    }
+    
+    private func showPencilInteraction(label: UILabel, str: String) {
+        label.text = str
+        label.alpha = 1
+        label.fadeOut(duration: 0.5, delay: 0.3)
     }
 
 }
