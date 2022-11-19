@@ -3,6 +3,7 @@
 //  Notes(improved)
 //
 //  Created by Uzair Tariq on 2022-11-14.
+//  Copyright © 2022 Uzair Tariq. All rights reserved.
 //
 
 import UIKit
@@ -136,7 +137,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     private func showPencilInteraction(label: UILabel, str: String) {
         label.text = str
         label.alpha = 1
-        label.fadeOut(duration: 0.5, delay: 0.3)
+        label.fadeOutAnimation(duration: 0.5, delay: 0.3)
     }
 
 }

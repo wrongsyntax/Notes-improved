@@ -293,25 +293,39 @@
                     <view key="view" contentMode="scaleToFill" id="Tcp-7w-Qzg">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-re-45F" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="24" width="1180" height="731"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iIW-Tz-9G3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hOy-re-45F" firstAttribute="bottom" secondItem="iIW-Tz-9G3" secondAttribute="bottom" id="B7H-HW-QcJ"/>
+                            <constraint firstItem="hOy-re-45F" firstAttribute="centerX" secondItem="Tcp-7w-Qzg" secondAttribute="centerX" id="pWs-sl-M1J"/>
+                            <constraint firstItem="hOy-re-45F" firstAttribute="top" secondItem="iIW-Tz-9G3" secondAttribute="top" id="rlq-eo-HuY"/>
+                            <constraint firstItem="hOy-re-45F" firstAttribute="leading" secondItem="iIW-Tz-9G3" secondAttribute="leading" id="wkB-Jv-INb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Canvas" id="E1l-MO-fGh">
                         <imageReference key="image" image="pencil.and.outline" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="pdfView" destination="hOy-re-45F" id="JRv-KZ-ZWY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTB-Xj-XsF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="-738"/>
+            <point key="canvasLocation" x="142.88135593220341" y="-738.29268292682923"/>
         </scene>
         <!--MainTabBarController-->
         <scene sceneID="qgm-6Q-KMb">
             <objects>
                 <tabBarController title="MainTabBarController" id="yu7-4U-BAA" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oDX-gN-vtJ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="oDX-gN-vtJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="6iq-Kz-LGc"/>

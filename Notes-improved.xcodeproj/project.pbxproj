@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86A443C2292609C4004F9ED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A443C1292609C4004F9ED6 /* UIView.swift */; };
+		86B0F9292928426B00A21941 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B0F9282928426B00A21941 /* PDFKit.framework */; };
 		86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E542924C8D300063B8F /* AppDelegate.swift */; };
 		86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E562924C8D300063B8F /* SceneDelegate.swift */; };
 		86EE0E592924C8D300063B8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E582924C8D300063B8F /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		86A443C1292609C4004F9ED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		86B0F9282928426B00A21941 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		86EE0E512924C8D300063B8F /* Notes-improved.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-improved.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EE0E542924C8D300063B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EE0E562924C8D300063B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,17 +41,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B0F9292928426B00A21941 /* PDFKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86B0F9272928426B00A21941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86B0F9282928426B00A21941 /* PDFKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86EE0E482924C8D300063B8F = {
 			isa = PBXGroup;
 			children = (
 				86EE0E532924C8D300063B8F /* Notes-improved */,
 				86EE0E522924C8D300063B8F /* Products */,
+				86B0F9272928426B00A21941 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +120,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
+				ORGANIZATIONNAME = "Uzair Tariq";
 				TargetAttributes = {
 					86EE0E502924C8D300063B8F = {
 						CreatedOnToolsVersion = 14.1;
