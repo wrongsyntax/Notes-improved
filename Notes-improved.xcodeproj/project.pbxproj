@@ -11,13 +11,13 @@
 		86B0F9292928426B00A21941 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B0F9282928426B00A21941 /* PDFKit.framework */; };
 		86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E542924C8D300063B8F /* AppDelegate.swift */; };
 		86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E562924C8D300063B8F /* SceneDelegate.swift */; };
-		86EE0E592924C8D300063B8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E582924C8D300063B8F /* ViewController.swift */; };
 		86EE0E5C2924C8D300063B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EE0E5A2924C8D300063B8F /* Main.storyboard */; };
 		86EE0E5E2924C8D800063B8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EE0E5D2924C8D800063B8F /* Assets.xcassets */; };
 		86EE0E612924C8D800063B8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */; };
 		86EE0E692924C97400063B8F /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E682924C97400063B8F /* CanvasViewController.swift */; };
 		86EE0E6B2924C97A00063B8F /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E6A2924C97A00063B8F /* DebugViewController.swift */; };
 		86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E6C2924C98100063B8F /* SettingsViewController.swift */; };
+		86EF77192929847400B28E1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EF77182929847400B28E1C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,6 @@
 		86EE0E512924C8D300063B8F /* Notes-improved.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-improved.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EE0E542924C8D300063B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EE0E562924C8D300063B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86EE0E582924C8D300063B8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		86EE0E5B2924C8D300063B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86EE0E5D2924C8D800063B8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86EE0E602924C8D800063B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		86EE0E682924C97400063B8F /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		86EE0E6A2924C97A00063B8F /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		86EE0E6C2924C98100063B8F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		86EF77182929847400B28E1C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,19 +76,27 @@
 		86EE0E532924C8D300063B8F /* Notes-improved */ = {
 			isa = PBXGroup;
 			children = (
-				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
-				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
-				86EE0E582924C8D300063B8F /* ViewController.swift */,
-				86EE0E6A2924C97A00063B8F /* DebugViewController.swift */,
-				86EE0E682924C97400063B8F /* CanvasViewController.swift */,
-				86EE0E6C2924C98100063B8F /* SettingsViewController.swift */,
+				86EF77172929828B00B28E1C /* ViewControllers */,
 				86EE0E5A2924C8D300063B8F /* Main.storyboard */,
 				86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */,
 				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
+				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
+				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
 				86A443C1292609C4004F9ED6 /* UIView.swift */,
 				86EE0E622924C8D800063B8F /* Info.plist */,
 			);
 			path = "Notes-improved";
+			sourceTree = "<group>";
+		};
+		86EF77172929828B00B28E1C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				86EE0E6A2924C97A00063B8F /* DebugViewController.swift */,
+				86EE0E682924C97400063B8F /* CanvasViewController.swift */,
+				86EE0E6C2924C98100063B8F /* SettingsViewController.swift */,
+				86EF77182929847400B28E1C /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,11 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				86EE0E692924C97400063B8F /* CanvasViewController.swift in Sources */,
-				86EE0E592924C8D300063B8F /* ViewController.swift in Sources */,
 				86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */,
 				86A443C2292609C4004F9ED6 /* UIView.swift in Sources */,
 				86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */,
 				86EE0E6B2924C97A00063B8F /* DebugViewController.swift in Sources */,
+				86EF77192929847400B28E1C /* HomeViewController.swift in Sources */,
 				86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

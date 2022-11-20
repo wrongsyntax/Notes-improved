@@ -41,6 +41,10 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     
     @IBOutlet private var gaugeLabelCollection: [UILabel]!
     
+    @IBAction func dismissDebugButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
     // MARK: Touch Handling
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touches.forEach { (touch) in

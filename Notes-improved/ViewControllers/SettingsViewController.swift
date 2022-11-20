@@ -6,6 +6,15 @@
 //  Copyright © 2022 Uzair Tariq. All rights reserved.
 //
 
+/*
+ *  When creating a new UserDefault update/create the following:
+ *     - IBAction for setting interaction
+ *     - IBOutlet for resetting setting
+ *     - Function to update default
+ *     - loadDefaults() method
+ *     - Define new default in UserDefaults extension
+ */
+
 import UIKit
 
 class SettingsViewController: UIViewController {
@@ -22,8 +31,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet private var minSliderOutlet: UISlider!
     @IBOutlet private var maxSliderOutlet: UISlider!
     @IBOutlet private var sysDoubleTapToggleOutlet: UISwitch!
+    @IBOutlet weak var showDebugToggleOutlet: UISwitch!
     
     // MARK: IBAction Definitions
+    @IBAction func dismissSettingsButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
     @IBAction func resetAllBtn(_ sender: Any) {
         let confirmationAlert = UIAlertController(
             title: "Reset all settings?",
@@ -44,6 +58,14 @@ class SettingsViewController: UIViewController {
             updateUseSysDoubleTap(newValue: true)
         } else if !sender.isOn {
             updateUseSysDoubleTap(newValue: false)
+        }
+    }
+    
+    @IBAction func showDebugButtonToggle(_ sender: UISwitch) {
+        if sender.isOn {
+            updateShowDebugButton(newValue: true)
+        } else if !sender.isOn {
+            updateShowDebugButton(newValue: false)
         }
     }
     
@@ -72,17 +94,12 @@ class SettingsViewController: UIViewController {
     private func updateUseSysDoubleTap(newValue: Bool) {
         UserDefaults.useSystemDoubleTap = newValue
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    private func updateShowDebugButton(newValue: Bool) {
+        UserDefaults.showDebugButtonInNavBar = newValue
+    }
+    
+    // MARK: Load Defaults
     // TODO: implement function that checks type of UIView and uses `for each` to set values to UserDefault
     private func loadDefaults() {
         /// Load defaults and show them
@@ -94,6 +111,9 @@ class SettingsViewController: UIViewController {
         
         // System double-tap setting toggle:
         sysDoubleTapToggleOutlet.isOn = UserDefaults.useSystemDoubleTap
+        
+        // Show debug button in nav bar:
+        showDebugToggleOutlet.isOn = UserDefaults.showDebugButtonInNavBar
     }
 
 }
@@ -125,6 +145,9 @@ extension UserDefaults {
     
     @UserDefault(key: "use_system_double_tap", defaultValue: true)
     static var useSystemDoubleTap: Bool
+    
+    @UserDefault(key: "show_debug_button_in_navbar", defaultValue: true)
+    static var showDebugButtonInNavBar: Bool
     
     static func resetDefaults() {
             if let bundleID = Bundle.main.bundleIdentifier {
