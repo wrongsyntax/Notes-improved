@@ -14,6 +14,8 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Debug"
+        
         if #available(iOS 12.1, *) {
             let pencilInteraction = UIPencilInteraction()
             pencilInteraction.delegate = self
@@ -49,18 +51,28 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touches.forEach { (touch) in
             updateGauges(with: touch)
+            
+            let debugPointerView = initializeDebugPointerView(x: 0, y: 0)
+            view.addSubview(debugPointerView)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         touches.forEach { (touch) in
             updateGauges(with: touch)
+            updateDebugPointer(with: touch, scalingFactor: 10)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touches.forEach { (touch) in
             clearGauges()
+            
+            for subview in self.view.subviews {
+                if (subview.restorationIdentifier == "pointerView") {
+                    subview.removeFromSuperview()
+                }
+            }
         }
     }
     
@@ -71,7 +83,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
         maxForceLabel.text = String(format: "%.3f", UserDefaults.maxForceValue)
         doubleTapSettingLabel.text = String(UserDefaults.useSystemDoubleTap)
         
-        forceLabel.text = String(format: "%.3f", boundForceValue(with: touch))
+        forceLabel.text = String(format: "%.3f", boundedForceValue(with: touch))
         azimuthLabel.text = String(format: "%.3f", touch.azimuthAngle(in: view)) + " rad"
         altitudeLabel.text = String(format: "%.3f", touch.altitudeAngle) + " rad"
         
@@ -122,7 +134,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
         }
     }
     
-    private func boundForceValue(with touch: UITouch) -> CGFloat {
+    private func boundedForceValue(with touch: UITouch) -> CGFloat {
         var boundedForceValue: CGFloat = touch.force
         let minValue: CGFloat = UserDefaults.minForceValue
         let maxValue: CGFloat = UserDefaults.maxForceValue
@@ -142,6 +154,32 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
         label.text = str
         label.alpha = 1
         label.fadeOutAnimation(duration: 0.5, delay: 0.3)
+    }
+    
+    private func initializeDebugPointerView(x atX: CGFloat, y atY: CGFloat) -> UIView {
+        let pointerView = UIView()
+        pointerView.restorationIdentifier = "pointerView"
+        
+        return pointerView
+    }
+    
+    private func updateDebugPointer(with touch: UITouch, scalingFactor: CGFloat) {
+        let location = touch.preciseLocation(in: view)
+        let rectSize = boundedForceValue(with: touch) * scalingFactor
+        
+        for subview in self.view.subviews {
+            if (subview.restorationIdentifier == "pointerView") {
+                subview.center = touch.preciseLocation(in: view)
+                
+                subview.frame = CGRect(origin: CGPoint(x: location.x - (rectSize/2), y: location.y - (rectSize/2)),
+                                       size: CGSize(width: rectSize, height: rectSize))
+                
+                subview.layer.borderColor = CGColor(red: 0.067, green: 0.682, blue: 0.569, alpha: 1)
+                subview.layer.borderWidth = 2
+                subview.layer.backgroundColor = CGColor(red: 0.067, green: 0.682, blue: 0.569, alpha: 0.2)
+                subview.layer.cornerRadius = rectSize / 2
+            }
+        }
     }
 
 }

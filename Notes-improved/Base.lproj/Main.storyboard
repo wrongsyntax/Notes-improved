@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-uj-NcO">
-                                <rect key="frame" x="55" y="459" width="336" height="37"/>
+                                <rect key="frame" x="55" y="459" width="421" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="31"/>
                                 <color key="textColor" systemColor="systemYellowColor"/>
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="-1421"/>
+            <point key="canvasLocation" x="-140.33898305084747" y="-1482.439024390244"/>
         </scene>
         <!--Settings-->
         <scene sceneID="UAj-Bm-4fk">
@@ -321,7 +321,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvi-5g-ePv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="h9o-QI-blK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="-2090"/>
+            <point key="canvasLocation" x="-819" y="-1482"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6Dd-1l-Zwm">
@@ -334,6 +334,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="EcH-DB-oez" kind="relationship" relationship="viewControllers" id="IHh-KI-qpX"/>
+                        <segue destination="Brc-cS-MYF" kind="relationship" relationship="viewControllers" id="iLe-sx-eTD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euF-st-wAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-re-45F" customClass="PDFView">
-                                <rect key="frame" x="0.0" y="24" width="1180" height="776"/>
+                                <rect key="frame" x="0.0" y="24" width="1180" height="731"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -391,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTB-Xj-XsF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-738"/>
+            <point key="canvasLocation" x="-1512" y="-58"/>
         </scene>
         <!--Documents-->
         <scene sceneID="BC8-l1-p7h">
