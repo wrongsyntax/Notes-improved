@@ -50,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86704993292C906A005B94C3 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				86A443C1292609C4004F9ED6 /* UIView.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
 		86B0F9272928426B00A21941 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				86EF77172929828B00B28E1C /* ViewControllers */,
+				86704993292C906A005B94C3 /* UIViews */,
 				86EE0E5A2924C8D300063B8F /* Main.storyboard */,
 				86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */,
 				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
 				86704990292C88B4005B94C3 /* Notes-improved.xcdatamodeld */,
 				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
 				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
-				86A443C1292609C4004F9ED6 /* UIView.swift */,
 				86EE0E622924C8D800063B8F /* Info.plist */,
 			);
 			path = "Notes-improved";

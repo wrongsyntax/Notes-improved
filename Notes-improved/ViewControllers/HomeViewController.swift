@@ -13,9 +13,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initializeNavBar()
+        initializeNavBar()
+        initializeCreateButtons()
     }
     
+    // MARK: Nav Bar
     private func initializeNavBar() {
         navigationItem.title = "Notes(im)"
         
@@ -25,7 +27,7 @@ class HomeViewController: UIViewController {
         }
         
         // Definitions
-        let settingsImage = UIImage(systemName: "gearshape")
+        let settingsImage = UIImage(systemName: "gearshape.circle", withConfiguration: hierarchicalConfig(UIColor.label))
         let settingsBarButton = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettingsButton))
         
         let debugImage = UIImage(systemName: "ant.circle", withConfiguration: hierarchicalConfig(UIColor.systemYellow))
@@ -46,5 +48,18 @@ class HomeViewController: UIViewController {
     
     @objc func didTapDebugButton() {
         performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
+    }
+    
+    // TODO: Extract this whole view into its own file then add it to this view
+    @IBOutlet weak var createButtonsBoundingRect: UIView!
+    
+    private func initializeCreateButtons() {
+        createButtonsBoundingRect.addDashedBorder()
+    }
+    
+    // Updates dashed border when switching between dark and light
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        createButtonsBoundingRect.addDashedBorder()
     }
 }
