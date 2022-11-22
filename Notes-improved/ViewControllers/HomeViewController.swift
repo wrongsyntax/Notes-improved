@@ -17,17 +17,19 @@ class HomeViewController: UIViewController {
     }
     
     private func initializeNavBar() {
-        // Nav Bar stuff
         navigationItem.title = "Notes(im)"
         
         var navBarRightItems: [UIBarButtonItem] = []
+        let hierarchicalConfig = { (colour: UIColor) -> UIImage.SymbolConfiguration in
+            return UIImage.SymbolConfiguration(hierarchicalColor: colour)
+        }
         
         // Definitions
-        let settingsBarButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(didTapSettingsButton))
-        let debugBarButton = UIBarButtonItem(image: UIImage(systemName: "ant.circle"), style: .plain, target: self, action: #selector(didTapDebugButton))
+        let settingsImage = UIImage(systemName: "gearshape")
+        let settingsBarButton = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettingsButton))
         
-        // Tint Colours
-        debugBarButton.tintColor = UIColor.systemYellow
+        let debugImage = UIImage(systemName: "ant.circle", withConfiguration: hierarchicalConfig(UIColor.systemYellow))
+        let debugBarButton = UIBarButtonItem(image: debugImage, style: .plain, target: self, action: #selector(didTapDebugButton))
         
         // Add items
         navBarRightItems.append(settingsBarButton)
