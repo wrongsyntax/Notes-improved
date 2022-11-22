@@ -183,6 +183,7 @@
                         <outletCollection property="gaugeLabelCollection" destination="32Y-mh-c4B" collectionClass="NSMutableArray" id="p6t-tT-4e4"/>
                         <outletCollection property="gaugeLabelCollection" destination="v5h-uj-NcO" collectionClass="NSMutableArray" id="PoK-cg-h2C"/>
                         <outletCollection property="gaugeLabelCollection" destination="biH-vT-zbn" collectionClass="NSMutableArray" id="v9N-aA-gZ7"/>
+                        <segue destination="obA-Ph-sRm" kind="presentation" identifier="debugViewToSettingsModalSegue" id="w6h-FG-hUp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -321,7 +322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvi-5g-ePv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="h9o-QI-blK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="-1482"/>
+            <point key="canvasLocation" x="-140" y="-738"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6Dd-1l-Zwm">
@@ -406,8 +407,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="79o-y3-c91"/>
                     <connections>
-                        <segue destination="obA-Ph-sRm" kind="presentation" identifier="segueToSettingsModal" id="Nee-dc-DSK"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueToDebugView" id="4lW-Hs-cLC"/>
+                        <segue destination="obA-Ph-sRm" kind="presentation" identifier="homeViewToSettingsModalSegue" id="Nee-dc-DSK"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeViewToDebugViewSegue" id="4lW-Hs-cLC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVv-q9-svG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -415,6 +416,9 @@
             <point key="canvasLocation" x="-819" y="-738"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="w6h-FG-hUp"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemRedColor"/>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>

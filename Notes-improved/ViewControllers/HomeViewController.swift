@@ -39,10 +39,10 @@ class HomeViewController: UIViewController {
     }
     
     @objc func didTapSettingsButton() {
-        performSegue(withIdentifier: "segueToSettingsModal", sender: self)
+        performSegue(withIdentifier: "homeViewToSettingsModalSegue", sender: self)
     }
     
     @objc func didTapDebugButton() {
-        performSegue(withIdentifier: "segueToDebugView", sender: self)
+        performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
     }
 }

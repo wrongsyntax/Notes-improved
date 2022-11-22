@@ -14,7 +14,7 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Debug"
+        initializeNavBar()
         
         if #available(iOS 12.1, *) {
             let pencilInteraction = UIPencilInteraction()
@@ -180,6 +180,24 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
                 subview.layer.cornerRadius = rectSize / 2
             }
         }
+    }
+    
+    private func initializeNavBar() {
+        // Nav Bar stuff
+        navigationItem.title = "Debug"
+        
+        var navBarRightItems: [UIBarButtonItem] = []
+        
+        // Definitions
+        let settingsBarButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(didTapSettingsButton))
+        
+        navBarRightItems.append(settingsBarButton)
+        
+        navigationItem.rightBarButtonItems = navBarRightItems
+    }
+    
+    @objc func didTapSettingsButton() {
+        performSegue(withIdentifier: "debugViewToSettingsModalSegue", sender: self)
     }
 
 }
