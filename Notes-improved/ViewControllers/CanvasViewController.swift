@@ -26,7 +26,7 @@ class CanvasViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-      pdfView.autoScales = true
+//      pdfView.autoScales = true
     }
     
     

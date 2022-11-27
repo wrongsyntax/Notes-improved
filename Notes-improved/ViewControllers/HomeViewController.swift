@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         initializeNavBar()
-        initializeCreateButtons()
+//        initializeCreateButtons()
     }
     
     // MARK: Nav Bar
@@ -50,16 +50,16 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
     }
     
-    // TODO: Extract this whole view into its own file then add it to this view
-    @IBOutlet weak var createButtonsBoundingRect: UIView!
-    
-    private func initializeCreateButtons() {
-        createButtonsBoundingRect.addDashedBorder()
-    }
-    
-    // Updates dashed border when switching between dark and light
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        createButtonsBoundingRect.addDashedBorder()
-    }
+//    // TODO: Extract this whole view into its own file then add it to this view
+//    @IBOutlet weak var createButtonsBoundingRect: UIView!
+//
+//    private func initializeCreateButtons() {
+//        createButtonsBoundingRect.addDashedBorder()
+//    }
+//
+//    // Updates dashed border when switching between dark and light
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        createButtonsBoundingRect.addDashedBorder()
+//    }
 }

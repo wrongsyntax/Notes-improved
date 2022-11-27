@@ -184,6 +184,8 @@ class DebugViewController: UIViewController, UIPencilInteractionDelegate {
     
     // MARK: Nav Bar
     private func initializeNavBar() {
+        navigationItem.title = "Debug"
+        
         var navBarRightItems: [UIBarButtonItem] = []
         let hierarchicalConfig = { (colour: UIColor) -> UIImage.SymbolConfiguration in
             return UIImage.SymbolConfiguration(hierarchicalColor: colour)
