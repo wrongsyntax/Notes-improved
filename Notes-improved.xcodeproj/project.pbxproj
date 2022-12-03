@@ -12,6 +12,14 @@
 		86A443C2292609C4004F9ED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A443C1292609C4004F9ED6 /* UIView.swift */; };
 		86A7E75A2931BC43003DE395 /* FileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A7E7592931BC43003DE395 /* FileCell.xib */; };
 		86B0F9292928426B00A21941 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B0F9282928426B00A21941 /* PDFKit.framework */; };
+		86B979DF29331F0400E4487F /* JetBrainsMono-Medium-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979D729331F0100E4487F /* JetBrainsMono-Medium-Italic.ttf */; };
+		86B979E029331F0400E4487F /* JetBrainsMono-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979D829331F0200E4487F /* JetBrainsMono-ExtraBold.ttf */; };
+		86B979E129331F0400E4487F /* JetBrainsMono-ExtraBold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979D929331F0200E4487F /* JetBrainsMono-ExtraBold-Italic.ttf */; };
+		86B979E229331F0400E4487F /* JetBrainsMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979DA29331F0300E4487F /* JetBrainsMono-Bold.ttf */; };
+		86B979E329331F0400E4487F /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979DB29331F0300E4487F /* JetBrainsMono-Regular.ttf */; };
+		86B979E429331F0400E4487F /* JetBrainsMono-Bold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979DC29331F0300E4487F /* JetBrainsMono-Bold-Italic.ttf */; };
+		86B979E529331F0400E4487F /* JetBrainsMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979DD29331F0400E4487F /* JetBrainsMono-Medium.ttf */; };
+		86B979E629331F0400E4487F /* JetBrainsMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979DE29331F0400E4487F /* JetBrainsMono-Italic.ttf */; };
 		86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E542924C8D300063B8F /* AppDelegate.swift */; };
 		86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E562924C8D300063B8F /* SceneDelegate.swift */; };
 		86EE0E5C2924C8D300063B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EE0E5A2924C8D300063B8F /* Main.storyboard */; };
@@ -29,6 +37,14 @@
 		86A443C1292609C4004F9ED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		86A7E7592931BC43003DE395 /* FileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileCell.xib; sourceTree = "<group>"; };
 		86B0F9282928426B00A21941 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		86B979D729331F0100E4487F /* JetBrainsMono-Medium-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Medium-Italic.ttf"; sourceTree = "<group>"; };
+		86B979D829331F0200E4487F /* JetBrainsMono-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-ExtraBold.ttf"; sourceTree = "<group>"; };
+		86B979D929331F0200E4487F /* JetBrainsMono-ExtraBold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-ExtraBold-Italic.ttf"; sourceTree = "<group>"; };
+		86B979DA29331F0300E4487F /* JetBrainsMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Bold.ttf"; sourceTree = "<group>"; };
+		86B979DB29331F0300E4487F /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
+		86B979DC29331F0300E4487F /* JetBrainsMono-Bold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Bold-Italic.ttf"; sourceTree = "<group>"; };
+		86B979DD29331F0400E4487F /* JetBrainsMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Medium.ttf"; sourceTree = "<group>"; };
+		86B979DE29331F0400E4487F /* JetBrainsMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Italic.ttf"; sourceTree = "<group>"; };
 		86EE0E512924C8D300063B8F /* Notes-improved.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-improved.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EE0E542924C8D300063B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EE0E562924C8D300063B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +95,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		86B979D529331EB000E4487F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
+				86B979D629331EBA00E4487F /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		86B979D629331EBA00E4487F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86B979DC29331F0300E4487F /* JetBrainsMono-Bold-Italic.ttf */,
+				86B979DA29331F0300E4487F /* JetBrainsMono-Bold.ttf */,
+				86B979D929331F0200E4487F /* JetBrainsMono-ExtraBold-Italic.ttf */,
+				86B979D829331F0200E4487F /* JetBrainsMono-ExtraBold.ttf */,
+				86B979DE29331F0400E4487F /* JetBrainsMono-Italic.ttf */,
+				86B979D729331F0100E4487F /* JetBrainsMono-Medium-Italic.ttf */,
+				86B979DD29331F0400E4487F /* JetBrainsMono-Medium.ttf */,
+				86B979DB29331F0300E4487F /* JetBrainsMono-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		86EE0E482924C8D300063B8F = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +144,7 @@
 				861267452931A818005F8095 /* CustomViews */,
 				86EE0E5A2924C8D300063B8F /* Main.storyboard */,
 				86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */,
-				86EE0E5D2924C8D800063B8F /* Assets.xcassets */,
+				86B979D529331EB000E4487F /* Assets */,
 				86704990292C88B4005B94C3 /* Notes-improved.xcdatamodeld */,
 				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
 				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
@@ -183,11 +223,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B979E429331F0400E4487F /* JetBrainsMono-Bold-Italic.ttf in Resources */,
 				861267472931A83E005F8095 /* FilesView.xib in Resources */,
 				86EE0E612924C8D800063B8F /* LaunchScreen.storyboard in Resources */,
+				86B979E029331F0400E4487F /* JetBrainsMono-ExtraBold.ttf in Resources */,
 				86EE0E5E2924C8D800063B8F /* Assets.xcassets in Resources */,
+				86B979E229331F0400E4487F /* JetBrainsMono-Bold.ttf in Resources */,
+				86B979DF29331F0400E4487F /* JetBrainsMono-Medium-Italic.ttf in Resources */,
+				86B979E629331F0400E4487F /* JetBrainsMono-Italic.ttf in Resources */,
 				86A7E75A2931BC43003DE395 /* FileCell.xib in Resources */,
+				86B979E129331F0400E4487F /* JetBrainsMono-ExtraBold-Italic.ttf in Resources */,
+				86B979E529331F0400E4487F /* JetBrainsMono-Medium.ttf in Resources */,
 				86EE0E5C2924C8D300063B8F /* Main.storyboard in Resources */,
+				86B979E329331F0400E4487F /* JetBrainsMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,8 +406,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Notes(im)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,8 +440,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Notes(im)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

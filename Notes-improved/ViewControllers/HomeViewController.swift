@@ -14,7 +14,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         initializeNavBar()
-//        initializeCreateButtons()
+        initializeCreateButton()
+    }
+    
+    @objc func didTapSettingsButton() {
+        performSegue(withIdentifier: "homeViewToSettingsModalSegue", sender: self)
+    }
+    
+    @objc func didTapDebugButton() {
+        performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
     }
     
     // MARK: Nav Bar
@@ -42,24 +50,14 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItems = navBarRightItems        
     }
     
-    @objc func didTapSettingsButton() {
-        performSegue(withIdentifier: "homeViewToSettingsModalSegue", sender: self)
-    }
+    // MARK: Create Button
+    @IBOutlet weak var createButtonOutlet: UIButton!
     
-    @objc func didTapDebugButton() {
-        performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
+    private func initializeCreateButton() {
+        let shadowColour: UIColor = UIColor(named: "AccentColor") ?? UIColor.systemRed
+        let shadowOpacity: Float = 0.5
+        let shadowOffset: CGSize = .zero
+        let shadowRadius: CGFloat = 10
+        createButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
     }
-    
-//    // TODO: Extract this whole view into its own file then add it to this view
-//    @IBOutlet weak var createButtonsBoundingRect: UIView!
-//
-//    private func initializeCreateButtons() {
-//        createButtonsBoundingRect.addDashedBorder()
-//    }
-//
-//    // Updates dashed border when switching between dark and light
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        createButtonsBoundingRect.addDashedBorder()
-//    }
 }

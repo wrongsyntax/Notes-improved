@@ -38,5 +38,13 @@ extension UIView {
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 20).cgPath
 
         self.layer.addSublayer(shapeLayer)
-    }    
+    }
+    
+    func addDropShadow(colour: UIColor, opacity: Float, offset: CGSize, radius: CGFloat) {
+        self.layer.shadowColor = colour.cgColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = radius
+//        self.layer.shadowPath = UIBezierPath(rect: self.).cgPath
+    }
 }
