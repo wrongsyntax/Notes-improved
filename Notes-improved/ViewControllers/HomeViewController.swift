@@ -9,12 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializeNavBar()
-        initializeCreateButton()
+        initializeCreationButton()
     }
     
     @objc func didTapSettingsButton() {
@@ -50,14 +50,37 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItems = navBarRightItems        
     }
     
-    // MARK: Create Button
-    @IBOutlet weak var createButtonOutlet: UIButton!
+    // MARK: File Management
     
-    private func initializeCreateButton() {
+    private func initializeFileManager() -> URL? {
+        do {
+            let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory,
+                                                                    in: .userDomainMask,
+                                                                    appropriateFor: nil,
+                                                                    create: false)
+            return documentsDirectoryURL
+        } catch let error as NSError {
+            let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
+            self.present(errorAlert, animated: true)
+        }
+        
+        return nil
+    }
+
+    lazy var currentDirectory = initializeFileManager()
+    
+    private func getFilesInCurrentDirectory() {
+        
+    }
+    
+    // MARK: Creation Button
+    @IBOutlet weak var creationButtonOutlet: UIButton!
+    
+    private func initializeCreationButton() {
         let shadowColour: UIColor = UIColor(named: "AccentColor") ?? UIColor.systemRed
         let shadowOpacity: Float = 0.5
         let shadowOffset: CGSize = .zero
         let shadowRadius: CGFloat = 10
-        createButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
+        creationButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
     }
 }

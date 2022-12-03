@@ -29,6 +29,7 @@
 		86EE0E6B2924C97A00063B8F /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E6A2924C97A00063B8F /* DebugViewController.swift */; };
 		86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE0E6C2924C98100063B8F /* SettingsViewController.swift */; };
 		86EF77192929847400B28E1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EF77182929847400B28E1C /* HomeViewController.swift */; };
+		86F136CF293B127A00426B4B /* CreationPopoverControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F136CE293B127A00426B4B /* CreationPopoverControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		86EE0E6A2924C97A00063B8F /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		86EE0E6C2924C98100063B8F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		86EF77182929847400B28E1C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		86F136CE293B127A00426B4B /* CreationPopoverControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationPopoverControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				86EE0E682924C97400063B8F /* CanvasViewController.swift */,
 				86EE0E6C2924C98100063B8F /* SettingsViewController.swift */,
 				86EF77182929847400B28E1C /* HomeViewController.swift */,
+				86F136CE293B127A00426B4B /* CreationPopoverControllerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				86EF77192929847400B28E1C /* HomeViewController.swift in Sources */,
 				86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */,
 				86704992292C88B4005B94C3 /* Notes-improved.xcdatamodeld in Sources */,
+				86F136CF293B127A00426B4B /* CreationPopoverControllerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

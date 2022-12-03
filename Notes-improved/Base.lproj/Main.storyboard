@@ -432,7 +432,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="79o-y3-c91"/>
                     <connections>
-                        <outlet property="createButtonOutlet" destination="lJ4-SX-oqL" id="VNO-zi-0jn"/>
+                        <outlet property="creationButtonOutlet" destination="lJ4-SX-oqL" id="VNO-zi-0jn"/>
                         <segue destination="obA-Ph-sRm" kind="presentation" identifier="homeViewToSettingsModalSegue" id="Nee-dc-DSK"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="homeViewToDebugViewSegue" id="4lW-Hs-cLC"/>
                     </connections>
@@ -441,10 +441,10 @@
             </objects>
             <point key="canvasLocation" x="-819.15254237288138" y="-738.29268292682923"/>
         </scene>
-        <!--View Controller-->
+        <!--Creation Popover Controller View Controller-->
         <scene sceneID="vO1-0C-P3z">
             <objects>
-                <viewController id="MJB-FT-wBC" sceneMemberID="viewController">
+                <viewController id="MJB-FT-wBC" customClass="CreationPopoverControllerViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6S-1a-WbU">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="163"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,6 +459,8 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="createNewDocument:" destination="tvw-rO-nzP" eventType="touchUpInside" id="mKA-jw-K7Y"/>
+                                    <action selector="didTapCreateNewDocument:" destination="tvw-rO-nzP" eventType="touchUpInside" id="Uue-KD-D43"/>
+                                    <action selector="didTapCreateNewDocument:" destination="MJB-FT-wBC" eventType="touchUpInside" id="xoQ-7C-ifZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzj-5L-YRQ">
@@ -470,7 +472,8 @@
                                     <imageReference key="image" image="folder.badge.plus" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="didTapCreateNewFolder:" destination="tvw-rO-nzP" eventType="touchUpInside" id="19h-hO-crn"/>
+                                    <action selector="didTapCreateNewFolder:" destination="tvw-rO-nzP" eventType="touchUpInside" id="Eje-9O-Qag"/>
+                                    <action selector="didTapCreateNewFolder:" destination="MJB-FT-wBC" eventType="touchUpInside" id="SQY-qq-FgV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Of-KM-9fb">
