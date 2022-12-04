@@ -8,21 +8,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate {
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializeNavBar()
         initializeCreationButton()
-    }
-    
-    @objc func didTapSettingsButton() {
-        performSegue(withIdentifier: "homeViewToSettingsModalSegue", sender: self)
-    }
-    
-    @objc func didTapDebugButton() {
-        performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
     }
     
     // MARK: Nav Bar
@@ -48,6 +40,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         navigationItem.rightBarButtonItems = navBarRightItems        
+    }
+    
+    @objc func didTapSettingsButton() {
+        performSegue(withIdentifier: "homeViewToSettingsModalSegue", sender: self)
+    }
+    
+    @objc func didTapDebugButton() {
+        performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
     }
     
     // MARK: Creation Button
@@ -102,24 +102,50 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if !contents[indexPath.row].hasDirectoryPath {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "DocumentCell", for: indexPath as IndexPath) as! DocumentCollectionViewCell
             cell.documentName.text = currentDirectoryURL.absoluteString
+            cell.delegate = self
             return cell
         } else {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath as IndexPath) as! FolderCollectionViewCell
             cell.folderName.text = contents[indexPath.row].lastPathComponent
             cell.folderContentCount.text = String(getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0) + " items"
+            cell.delegate = self
             return cell
         }
     }
-    
-    // Creation and Deletion functions are in CreationPopoverViewController
+}
+
+extension HomeViewController: HeaderCollectionViewCellDelegate {
+    func presentOptionsPopover(_ sender: Any) {
+        let optionsPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "optionsPopoverViewController")
+        optionsPopover.modalPresentationStyle = .popover
+        optionsPopover.popoverPresentationController?.permittedArrowDirections = [.left, .right]
+        optionsPopover.popoverPresentationController?.delegate = self
+        optionsPopover.popoverPresentationController?.sourceView = sender as? UIView
+        optionsPopover.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
+        self.present(optionsPopover, animated: true)
+    }
+}
+
+protocol HeaderCollectionViewCellDelegate {
+    func presentOptionsPopover(_ sender: Any)
 }
 
 class DocumentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var documentName: UILabel!
     @IBOutlet weak var documentCreationDate: UILabel!
+    var delegate: HeaderCollectionViewCellDelegate!
+    
+    @IBAction func didTapOptionsButton(_ sender: UIButton) {
+        self.delegate.presentOptionsPopover(sender)
+    }
 }
 
 class FolderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var folderName: UILabel!
     @IBOutlet weak var folderContentCount: UILabel!
+    var delegate: HeaderCollectionViewCellDelegate!
+    
+    @IBAction func didTapOptionsButton(_ sender: Any) {
+        self.delegate.presentOptionsPopover(sender)
+    }
 }

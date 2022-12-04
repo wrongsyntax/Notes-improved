@@ -401,6 +401,38 @@
             </objects>
             <point key="canvasLocation" x="-1512" y="-58"/>
         </scene>
+        <!--Options View Controller-->
+        <scene sceneID="TQP-Ou-GFM">
+            <objects>
+                <viewController storyboardIdentifier="optionsPopoverViewController" id="Cew-sN-3o0" userLabel="Options View Controller" customClass="OptionsPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cpg-sJ-xJR">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-Rh-TAP">
+                                <rect key="frame" x="160" y="146" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l4n-i0-Iek"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="centerX" secondItem="Cpg-sJ-xJR" secondAttribute="centerX" id="L0w-OP-Yo6"/>
+                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="centerY" secondItem="Cpg-sJ-xJR" secondAttribute="centerY" id="U5G-Bx-xS1"/>
+                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="leading" secondItem="l4n-i0-Iek" secondAttribute="leading" constant="160" id="oY9-WW-P6P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hfr-W0-oh5"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="363" height="300"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zi9-aS-6je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-819" y="-1482"/>
+        </scene>
         <!--Documents-->
         <scene sceneID="BC8-l1-p7h">
             <objects>
@@ -447,7 +479,7 @@
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Options" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTX-Wb-qH4">
+                                                <button toolTip="Options" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTX-Wb-qH4" userLabel="DocumentOptionsButton">
                                                     <rect key="frame" x="81" y="0.0" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemGray4Color"/>
@@ -456,6 +488,9 @@
                                                         <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="small"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" scale="medium" weight="medium"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="didTapOptionsButton:" destination="9ye-fk-t9i" eventType="touchUpInside" id="C0R-1k-W29"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -493,7 +528,7 @@
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Options" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAE-9w-8Ea">
+                                                <button toolTip="Options" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAE-9w-8Ea" userLabel="FolderOptionsButton">
                                                     <rect key="frame" x="81" y="0.0" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemGray4Color"/>
@@ -502,6 +537,9 @@
                                                         <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="small"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" scale="medium" weight="medium"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="didTapOptionsButton:" destination="lXB-BY-Fs1" eventType="touchUpInside" id="SHv-0Q-FUY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>

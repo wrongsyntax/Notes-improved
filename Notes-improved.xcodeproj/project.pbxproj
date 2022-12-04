@@ -11,6 +11,7 @@
 		86704992292C88B4005B94C3 /* Notes-improved.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86704990292C88B4005B94C3 /* Notes-improved.xcdatamodeld */; };
 		86A443C2292609C4004F9ED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A443C1292609C4004F9ED6 /* UIView.swift */; };
 		86A7E75A2931BC43003DE395 /* FileItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A7E7592931BC43003DE395 /* FileItemCell.xib */; };
+		86AC20F1293D3B0300F8C682 /* OptionsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC20F0293D3B0300F8C682 /* OptionsPopoverViewController.swift */; };
 		86B0F9292928426B00A21941 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B0F9282928426B00A21941 /* PDFKit.framework */; };
 		86B979DF29331F0400E4487F /* JetBrainsMono-Medium-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979D729331F0100E4487F /* JetBrainsMono-Medium-Italic.ttf */; };
 		86B979E029331F0400E4487F /* JetBrainsMono-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B979D829331F0200E4487F /* JetBrainsMono-ExtraBold.ttf */; };
@@ -38,6 +39,7 @@
 		86704991292C88B4005B94C3 /* Notes-improved.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Notes-improved.xcdatamodel"; sourceTree = "<group>"; };
 		86A443C1292609C4004F9ED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		86A7E7592931BC43003DE395 /* FileItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileItemCell.xib; sourceTree = "<group>"; };
+		86AC20F0293D3B0300F8C682 /* OptionsPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopoverViewController.swift; sourceTree = "<group>"; };
 		86B0F9282928426B00A21941 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		86B979D729331F0100E4487F /* JetBrainsMono-Medium-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Medium-Italic.ttf"; sourceTree = "<group>"; };
 		86B979D829331F0200E4487F /* JetBrainsMono-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				86EE0E6C2924C98100063B8F /* SettingsViewController.swift */,
 				86EF77182929847400B28E1C /* HomeViewController.swift */,
 				86F136CE293B127A00426B4B /* CreationPopoverViewController.swift */,
+				86AC20F0293D3B0300F8C682 /* OptionsPopoverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */,
 				86704992292C88B4005B94C3 /* Notes-improved.xcdatamodeld in Sources */,
 				86F136CF293B127A00426B4B /* CreationPopoverViewController.swift in Sources */,
+				86AC20F1293D3B0300F8C682 /* OptionsPopoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
