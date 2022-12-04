@@ -22,12 +22,34 @@ class CreationPopoverViewController: UIViewController {
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
-        let currentDirectory = homeViewController.currentDirectoryURL
-        print("create new folder in \(String(describing: currentDirectory))")
+//        let currentDirectory = homeViewController.currentDirectoryURL
+//        print("create new folder in \(String(describing: currentDirectory))")
+        
+        var inputTextField: UITextField?
+        
+        let newFolderAlert = UIAlertController(title: "New Folder", message: nil, preferredStyle: .alert)
+        newFolderAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        newFolderAlert.addTextField(configurationHandler: { (textField: UITextField!) in
+            textField.placeholder = "New Folder"
+            inputTextField = textField
+        })
+        newFolderAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+            self.createNewDirectory(called: inputTextField?.text ?? "NewFolder")
+        }))
+        
+        present(newFolderAlert, animated: true)
     }
     
-    private func createNewDirectory() {
+    private func createNewDirectory(called newDirectoryName: String) {
+        let newPath = homeViewController.currentDirectoryURL.appending(path: newDirectoryName)
         
+        do {
+            try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)
+            print("Creating new directory: \(newPath)")
+        } catch let error as NSError {
+            let errorAlert = UIAlertController(title: "Error Creating Folder", message: "\(error)", preferredStyle: .alert)
+            self.present(errorAlert, animated: true)
+        }
     }
     
     private func deleteDirectory() {

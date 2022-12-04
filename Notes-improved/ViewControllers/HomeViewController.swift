@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,17 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItems = navBarRightItems        
     }
     
+    // MARK: Creation Button
+    @IBOutlet weak var creationButtonOutlet: UIButton!
+    
+    private func initializeCreationButton() {
+        let shadowColour: UIColor = UIColor(named: "AccentColor") ?? UIColor.systemRed
+        let shadowOpacity: Float = 0.5
+        let shadowOffset: CGSize = .zero
+        let shadowRadius: CGFloat = 10
+        creationButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
+    }
+    
     // MARK: File Management
     private func initializeFileManager() -> URL? {
         do {
@@ -65,9 +76,9 @@ class HomeViewController: UIViewController {
     lazy var rootDirectoryURL: URL = initializeFileManager()!
     lazy var currentDirectoryURL: URL = rootDirectoryURL
     
-    private func getFilesInCurrentDirectory() -> [URL]? {
+    private func getContentsInDirectory(at directory: URL) -> [URL]? {
         do {
-            let contents = try FileManager.default.contentsOfDirectory(at: currentDirectoryURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+            let contents = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
             return contents
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error)", preferredStyle: .alert)
@@ -78,20 +89,37 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var filesCollectionView: UICollectionView!
     
-    private func initializeFilesView() {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let numberOfItems = getContentsInDirectory(at: currentDirectoryURL) ?? []
+        return numberOfItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // https://stackoverflow.com/questions/36561666/displaying-two-different-cells-in-a-collection-view-swift-2-0-ios
         
+        let contents: [URL] = getContentsInDirectory(at: currentDirectoryURL) ?? []
+        
+        if !contents[indexPath.row].hasDirectoryPath {
+            let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "DocumentCell", for: indexPath as IndexPath) as! DocumentCollectionViewCell
+            cell.documentName.text = currentDirectoryURL.absoluteString
+            return cell
+        } else {
+            let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath as IndexPath) as! FolderCollectionViewCell
+            cell.folderName.text = contents[indexPath.row].lastPathComponent
+            cell.folderContentCount.text = String(getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0) + " items"
+            return cell
+        }
     }
     
     // Creation and Deletion functions are in CreationPopoverViewController
-    
-    // MARK: Creation Button
-    @IBOutlet weak var creationButtonOutlet: UIButton!
-    
-    private func initializeCreationButton() {
-        let shadowColour: UIColor = UIColor(named: "AccentColor") ?? UIColor.systemRed
-        let shadowOpacity: Float = 0.5
-        let shadowOffset: CGSize = .zero
-        let shadowRadius: CGFloat = 10
-        creationButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
-    }
+}
+
+class DocumentCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var documentName: UILabel!
+    @IBOutlet weak var documentCreationDate: UILabel!
+}
+
+class FolderCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var folderName: UILabel!
+    @IBOutlet weak var folderContentCount: UILabel!
 }
