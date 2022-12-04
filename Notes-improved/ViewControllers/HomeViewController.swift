@@ -61,6 +61,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         creationButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
     }
     
+    @IBAction func didTapCreationButton(_ sender: UIButton) {
+        presentCreationPopover(sender)
+    }
+    
+    private func presentCreationPopover(_ sender: Any) {
+        let creationPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "creationPopoverViewController")
+        creationPopover.modalPresentationStyle = .popover
+        creationPopover.popoverPresentationController?.permittedArrowDirections = .down
+        creationPopover.popoverPresentationController?.delegate = self
+        creationPopover.popoverPresentationController?.sourceView = sender as? UIView
+        creationPopover.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
+        self.present(creationPopover, animated: true)
+    }
+    
     // MARK: File Management
     private func initializeFileManager() -> URL? {
         do {
@@ -102,15 +116,21 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if !contents[indexPath.row].hasDirectoryPath {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "DocumentCell", for: indexPath as IndexPath) as! DocumentCollectionViewCell
             cell.documentName.text = currentDirectoryURL.absoluteString
-            cell.delegate = self
+            cell.delegate = self  // For popover
             return cell
         } else {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath as IndexPath) as! FolderCollectionViewCell
             cell.folderName.text = contents[indexPath.row].lastPathComponent
             cell.folderContentCount.text = String(getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0) + " items"
-            cell.delegate = self
+            cell.delegate = self  // For popover
             return cell
         }
+    }
+    
+    // TODO: Automatically reload when view is initially dismissed
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("dismissed")
+        filesCollectionView.reloadData()
     }
 }
 

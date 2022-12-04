@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140.33898305084747" y="-1482.439024390244"/>
+            <point key="canvasLocation" x="-140" y="-1398"/>
         </scene>
         <!--Settings-->
         <scene sceneID="UAj-Bm-4fk">
@@ -406,32 +406,32 @@
             <objects>
                 <viewController storyboardIdentifier="optionsPopoverViewController" id="Cew-sN-3o0" userLabel="Options View Controller" customClass="OptionsPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cpg-sJ-xJR">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-Rh-TAP">
-                                <rect key="frame" x="160" y="146" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-jl-L15">
+                                <rect key="frame" x="64" y="58" width="74" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4n-i0-Iek"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="centerX" secondItem="Cpg-sJ-xJR" secondAttribute="centerX" id="L0w-OP-Yo6"/>
-                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="centerY" secondItem="Cpg-sJ-xJR" secondAttribute="centerY" id="U5G-Bx-xS1"/>
-                            <constraint firstItem="3dM-Rh-TAP" firstAttribute="leading" secondItem="l4n-i0-Iek" secondAttribute="leading" constant="160" id="oY9-WW-P6P"/>
+                            <constraint firstItem="5sp-jl-L15" firstAttribute="leading" secondItem="l4n-i0-Iek" secondAttribute="leading" constant="64" id="F1o-WX-Zlx"/>
+                            <constraint firstItem="5sp-jl-L15" firstAttribute="top" secondItem="l4n-i0-Iek" secondAttribute="top" constant="34" id="FSx-vd-gil"/>
+                            <constraint firstItem="5sp-jl-L15" firstAttribute="centerY" secondItem="Cpg-sJ-xJR" secondAttribute="centerY" id="Xon-RH-kbo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hfr-W0-oh5"/>
-                    <value key="contentSizeForViewInPopover" type="size" width="363" height="300"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="150"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="200" height="150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zi9-aS-6je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="-1482"/>
+            <point key="canvasLocation" x="-1069" y="-1152"/>
         </scene>
         <!--Documents-->
         <scene sceneID="BC8-l1-p7h">
@@ -564,9 +564,7 @@
                                     <color key="baseBackgroundColor" name="AccentColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="MJB-FT-wBC" kind="popoverPresentation" popoverAnchorView="lJ4-SX-oqL" id="XCA-0w-JEe">
-                                        <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
-                                    </segue>
+                                    <action selector="didTapCreationButton:" destination="z9i-gd-CPx" eventType="touchUpInside" id="cYP-Tf-NBA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -596,9 +594,9 @@
         <!--Creation Popover View Controller-->
         <scene sceneID="vO1-0C-P3z">
             <objects>
-                <viewController id="MJB-FT-wBC" customClass="CreationPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="creationPopoverViewController" id="MJB-FT-wBC" customClass="CreationPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6S-1a-WbU">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="163"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6n-cR-TvF">
@@ -642,15 +640,16 @@
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="150"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="300" height="150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq6-WT-RSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tvw-rO-nzP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-819.15254237288138" y="-59.268292682926827"/>
+            <point key="canvasLocation" x="-1043" y="-304"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nee-dc-DSK"/>
+        <segue reference="w6h-FG-hUp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemRedColor"/>
     <resources>

@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CreationPopoverViewController: UIViewController {
+class CreationPopoverViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.presentationController?.delegate = self
     }
     
     private let homeViewController = HomeViewController(nibName: nil, bundle: nil)
@@ -22,9 +24,6 @@ class CreationPopoverViewController: UIViewController {
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
-//        let currentDirectory = homeViewController.currentDirectoryURL
-//        print("create new folder in \(String(describing: currentDirectory))")
-        
         var inputTextField: UITextField?
         
         let newFolderAlert = UIAlertController(title: "New Folder", message: nil, preferredStyle: .alert)
@@ -35,6 +34,7 @@ class CreationPopoverViewController: UIViewController {
         })
         newFolderAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             self.createNewDirectory(called: inputTextField?.text ?? "NewFolder")
+            self.dismiss(animated: true)
         }))
         
         present(newFolderAlert, animated: true)
