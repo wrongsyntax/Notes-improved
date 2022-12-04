@@ -51,27 +51,38 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: File Management
-    
     private func initializeFileManager() -> URL? {
         do {
-            let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory,
-                                                                    in: .userDomainMask,
-                                                                    appropriateFor: nil,
-                                                                    create: false)
+            let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             return documentsDirectoryURL
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
         }
-        
         return nil
     }
 
-    lazy var currentDirectory = initializeFileManager()
+    lazy var rootDirectoryURL: URL = initializeFileManager()!
+    lazy var currentDirectoryURL: URL = rootDirectoryURL
     
-    private func getFilesInCurrentDirectory() {
+    private func getFilesInCurrentDirectory() -> [URL]? {
+        do {
+            let contents = try FileManager.default.contentsOfDirectory(at: currentDirectoryURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+            return contents
+        } catch let error as NSError {
+            let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error)", preferredStyle: .alert)
+            self.present(errorAlert, animated: true)
+        }
+        return nil
+    }
+    
+    @IBOutlet weak var filesCollectionView: UICollectionView!
+    
+    private func initializeFilesView() {
         
     }
+    
+    // Creation and Deletion functions are in CreationPopoverViewController
     
     // MARK: Creation Button
     @IBOutlet weak var creationButtonOutlet: UIButton!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreationPopoverControllerViewController: UIViewController {
+class CreationPopoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +17,28 @@ class CreationPopoverControllerViewController: UIViewController {
     private let homeViewController = HomeViewController(nibName: nil, bundle: nil)
 
     @IBAction func didTapCreateNewDocument(_ sender: Any) {
-        let currentDirectory = homeViewController.currentDirectory
+        let currentDirectory = homeViewController.currentDirectoryURL
         print("create new document in \(String(describing: currentDirectory))")
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
-        let currentDirectory = homeViewController.currentDirectory
+        let currentDirectory = homeViewController.currentDirectoryURL
         print("create new folder in \(String(describing: currentDirectory))")
+    }
+    
+    private func createNewDirectory() {
+        
+    }
+    
+    private func deleteDirectory() {
+        
+    }
+    
+    private func createNewDocument() {
+        
+    }
+    
+    private func deleteDocument() {
+        
     }
 }
