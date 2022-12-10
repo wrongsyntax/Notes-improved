@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         initializeNavBar()
         initializeCreationButton()
     }
-    
+
     // MARK: Nav Bar
     private func initializeNavBar() {
         navigationItem.title = "Notes(im)"
@@ -127,14 +127,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    // TODO: Automatically reload when view is initially dismissed
+    // Reload whenever any popover is dismissed
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print("dismissed")
         filesCollectionView.reloadData()
     }
 }
 
-extension HomeViewController: HeaderCollectionViewCellDelegate {
+// MARK: Options Popover
+extension HomeViewController: FileCollectionViewCellDelegate {
     func presentOptionsPopover(_ sender: Any) {
         let optionsPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "optionsPopoverViewController")
         optionsPopover.modalPresentationStyle = .popover
@@ -146,14 +146,15 @@ extension HomeViewController: HeaderCollectionViewCellDelegate {
     }
 }
 
-protocol HeaderCollectionViewCellDelegate {
+protocol FileCollectionViewCellDelegate {
     func presentOptionsPopover(_ sender: Any)
 }
 
+// MARK: CollectionView Cells
 class DocumentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var documentName: UILabel!
     @IBOutlet weak var documentCreationDate: UILabel!
-    var delegate: HeaderCollectionViewCellDelegate!
+    var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: UIButton) {
         self.delegate.presentOptionsPopover(sender)
@@ -163,7 +164,7 @@ class DocumentCollectionViewCell: UICollectionViewCell {
 class FolderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var folderName: UILabel!
     @IBOutlet weak var folderContentCount: UILabel!
-    var delegate: HeaderCollectionViewCellDelegate!
+    var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: Any) {
         self.delegate.presentOptionsPopover(sender)
