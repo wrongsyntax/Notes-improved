@@ -127,7 +127,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    // Reload whenever any popover is dismissed
+    // Reload CollectionView whenever any popover is dismissed by user
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         filesCollectionView.reloadData()
     }
