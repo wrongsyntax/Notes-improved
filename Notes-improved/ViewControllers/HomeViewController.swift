@@ -6,9 +6,12 @@
 //  Copyright © 2022 Uzair Tariq. All rights reserved.
 //
 
+import os
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate {
+    
+    let logger = Logger(subsystem: "UzairTariq.Notes-imporoved", category: "HomeView")
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
+            logger.log(level: .error, "Error initializing FileManager: \(error)")
         }
         return nil
     }
@@ -97,6 +101,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
+            logger.log(level: .error, "Error getting files: \(error)")
         }
         return nil
     }

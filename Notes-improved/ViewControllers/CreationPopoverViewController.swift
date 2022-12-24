@@ -6,9 +6,12 @@
 //  Copyright © 2022 Uzair Tariq. All rights reserved.
 //
 
+import os
 import UIKit
 
 class CreationPopoverViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
+    
+    let logger = Logger(subsystem: "UzairTariq.Notes-improved", category: "CreationPopover")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +48,11 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
         
         do {
             try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)
-            print("Creating new directory: \(newPath)")
+            logger.log(level: .info, "Creating new directory: \(newPath)")
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Creating Folder", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
+            logger.log(level: .error, "Error creating folder: \(error)")
         }
     }
     
