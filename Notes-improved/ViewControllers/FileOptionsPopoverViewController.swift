@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsPopoverViewController: UIViewController {
+class FileOptionsPopoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
