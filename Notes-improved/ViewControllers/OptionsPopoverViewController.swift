@@ -16,4 +16,10 @@ class OptionsPopoverViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func trashFile(_ fileToTrash: URL) {
+        // Check if Trash/ directory exists, create it if necessary
+        
+        
+        // Move given file to Trash/
+    }
 }

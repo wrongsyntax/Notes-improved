@@ -56,15 +56,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
         }
     }
     
-    private func deleteDirectory() {
-        
-    }
-    
     private func createNewDocument() {
-        
-    }
-    
-    private func deleteDocument() {
         
     }
 }
