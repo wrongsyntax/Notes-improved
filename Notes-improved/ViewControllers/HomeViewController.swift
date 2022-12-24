@@ -120,13 +120,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         if !contents[indexPath.row].hasDirectoryPath {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "DocumentCell", for: indexPath as IndexPath) as! DocumentCollectionViewCell
-            cell.documentName.text = currentDirectoryURL.absoluteString
+            cell.documentName.text = currentDirectoryURL.absoluteString  // might be wrong
+            cell.associatedDocument = contents[indexPath.row]
             cell.delegate = self  // For popover
             return cell
         } else {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath as IndexPath) as! FolderCollectionViewCell
             cell.folderName.text = contents[indexPath.row].lastPathComponent
             cell.folderContentCount.text = String(getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0) + " items"
+            cell.associatedFolder = contents[indexPath.row]
             cell.delegate = self  // For popover
             return cell
         }
@@ -159,6 +161,7 @@ protocol FileCollectionViewCellDelegate {
 class DocumentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var documentName: UILabel!
     @IBOutlet weak var documentCreationDate: UILabel!
+    var associatedDocument: URL!
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: UIButton) {
@@ -169,6 +172,7 @@ class DocumentCollectionViewCell: UICollectionViewCell {
 class FolderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var folderName: UILabel!
     @IBOutlet weak var folderContentCount: UILabel!
+    var associatedFolder: URL!
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: Any) {
