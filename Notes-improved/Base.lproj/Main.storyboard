@@ -413,6 +413,9 @@
                                 <rect key="frame" x="64" y="58" width="74" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <connections>
+                                    <action selector="didTapDeleteButton:" destination="Cew-sN-3o0" eventType="touchUpInside" id="WLE-SZ-D5w"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4n-i0-Iek"/>

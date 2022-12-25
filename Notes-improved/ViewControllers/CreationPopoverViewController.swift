@@ -24,6 +24,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
     @IBAction func didTapCreateNewDocument(_ sender: Any) {
         let currentDirectory = homeViewController.currentDirectoryURL
         print("create new document in \(String(describing: currentDirectory))")
+//        logger.log(level: .info, "didTapCreateNewDocument")
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
@@ -40,6 +41,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
             self.dismiss(animated: true)
         }))
         
+//        logger.log(level: .info, "didTapCreateNewFolder")
         present(newFolderAlert, animated: true)
     }
     

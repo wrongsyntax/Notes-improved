@@ -16,10 +16,14 @@ class FileOptionsPopoverViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    public var sendingURL: URL!
+    
+    
+    @IBAction func didTapDeleteButton(_ sender: UIButton) {
+        
+    }
+    
     private func trashFile(_ fileToTrash: URL) {
-        // Check if Trash/ directory exists, create it if necessary
-        
-        
-        // Move given file to Trash/
+         
     }
 }

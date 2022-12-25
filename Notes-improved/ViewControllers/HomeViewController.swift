@@ -79,10 +79,22 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     // MARK: File Management
-    private func initializeFileManager() -> URL? {
+    private func initializeFileManager() -> [String: URL]? {
         do {
             let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            return documentsDirectoryURL
+            
+            let trashDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Trash")
+            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
+                try FileManager.default.createDirectory(at: trashDirectoryURL, withIntermediateDirectories: true)
+            }
+            
+            let templatesDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Templates")
+            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
+                try FileManager.default.createDirectory(at: templatesDirectoryURL, withIntermediateDirectories: true)
+            }
+            
+            // Templates will also be here in the future probably
+            return ["documents": documentsDirectoryURL]
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
@@ -90,8 +102,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         return nil
     }
-
-    lazy var rootDirectoryURL: URL = initializeFileManager()!
+    
+    lazy var initializedDirectories: [String: URL] = initializeFileManager()!
+    lazy var rootDirectoryURL: URL = initializedDirectories["documents"]!
     lazy var currentDirectoryURL: URL = rootDirectoryURL
     
     private func getContentsInDirectory(at directory: URL) -> [URL]? {
@@ -140,21 +153,22 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
-// MARK: Options Popover
+// MARK: File Options Popover
 extension HomeViewController: FileCollectionViewCellDelegate {
-    func presentFileOptionsPopover(_ sender: Any) {
-        let optionsPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fileOptionsPopoverViewController")
+    func presentFileOptionsPopover(_ sender: Any, senderURL: URL) {
+        let optionsPopover: FileOptionsPopoverViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fileOptionsPopoverViewController") as! FileOptionsPopoverViewController
         optionsPopover.modalPresentationStyle = .popover
         optionsPopover.popoverPresentationController?.permittedArrowDirections = [.left, .right]
         optionsPopover.popoverPresentationController?.delegate = self
         optionsPopover.popoverPresentationController?.sourceView = sender as? UIView
         optionsPopover.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
+        optionsPopover.sendingURL = senderURL
         self.present(optionsPopover, animated: true)
     }
 }
 
 protocol FileCollectionViewCellDelegate {
-    func presentFileOptionsPopover(_ sender: Any)
+    func presentFileOptionsPopover(_ sender: Any, senderURL: URL)
 }
 
 // MARK: CollectionView Cells
@@ -165,7 +179,7 @@ class DocumentCollectionViewCell: UICollectionViewCell {
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: UIButton) {
-        self.delegate.presentFileOptionsPopover(sender)
+        self.delegate.presentFileOptionsPopover(sender, senderURL: associatedDocument)
     }
 }
 
@@ -176,6 +190,6 @@ class FolderCollectionViewCell: UICollectionViewCell {
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: Any) {
-        self.delegate.presentFileOptionsPopover(sender)
+        self.delegate.presentFileOptionsPopover(sender, senderURL: associatedFolder)
     }
 }
