@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Opb-ic-btS">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -20,7 +21,7 @@
             <objects>
                 <viewController storyboardIdentifier="Debug" title="Debug" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DebugViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Force" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrf-is-f3v">
@@ -200,7 +201,7 @@
             <objects>
                 <viewController title="Settings" id="obA-Ph-sRm" customClass="SettingsViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVs-ww-XWJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="740"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="J4u-Y2-czS">
@@ -372,11 +373,11 @@
             <objects>
                 <viewController title="Canvas" id="Brc-cS-MYF" customClass="CanvasViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tcp-7w-Qzg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-re-45F" customClass="PDFView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="24" width="1180" height="731"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -403,7 +404,7 @@
         <!--Options View Controller-->
         <scene sceneID="TQP-Ou-GFM">
             <objects>
-                <viewController storyboardIdentifier="optionsPopoverViewController" id="Cew-sN-3o0" userLabel="Options View Controller" customClass="FileOptionsPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="fileOptionsPopoverViewController" id="Cew-sN-3o0" userLabel="Options View Controller" customClass="FileOptionsPopoverViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cpg-sJ-xJR">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,11 +438,11 @@
             <objects>
                 <viewController title="Documents" id="z9i-gd-CPx" customClass="HomeViewController" customModule="Notes_improved" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L2r-u8-yzU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MWT-XX-Rqv">
-                                <rect key="frame" x="0.0" y="44" width="600" height="502"/>
+                                <rect key="frame" x="0.0" y="74" width="1180" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LhH-OS-zyU">
                                     <size key="itemSize" width="115" height="166"/>
@@ -500,7 +501,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FolderCell" id="lXB-BY-Fs1" customClass="FolderCollectionViewCell" customModule="Notes_improved" customModuleProvider="target">
-                                        <rect key="frame" x="170" y="10" width="115" height="166"/>
+                                        <rect key="frame" x="152" y="10" width="115" height="166"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="erW-6t-LaP">
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="166"/>
@@ -555,7 +556,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJ4-SX-oqL">
-                                <rect key="frame" x="44" y="490" width="56" height="56"/>
+                                <rect key="frame" x="44" y="694" width="56" height="56"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="small"/>

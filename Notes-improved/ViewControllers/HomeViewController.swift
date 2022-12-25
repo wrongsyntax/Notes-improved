@@ -142,8 +142,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
 // MARK: Options Popover
 extension HomeViewController: FileCollectionViewCellDelegate {
-    func presentOptionsPopover(_ sender: Any) {
-        let optionsPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "optionsPopoverViewController")
+    func presentFileOptionsPopover(_ sender: Any) {
+        let optionsPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fileOptionsPopoverViewController")
         optionsPopover.modalPresentationStyle = .popover
         optionsPopover.popoverPresentationController?.permittedArrowDirections = [.left, .right]
         optionsPopover.popoverPresentationController?.delegate = self
@@ -154,7 +154,7 @@ extension HomeViewController: FileCollectionViewCellDelegate {
 }
 
 protocol FileCollectionViewCellDelegate {
-    func presentOptionsPopover(_ sender: Any)
+    func presentFileOptionsPopover(_ sender: Any)
 }
 
 // MARK: CollectionView Cells
@@ -165,7 +165,7 @@ class DocumentCollectionViewCell: UICollectionViewCell {
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: UIButton) {
-        self.delegate.presentOptionsPopover(sender)
+        self.delegate.presentFileOptionsPopover(sender)
     }
 }
 
@@ -176,6 +176,6 @@ class FolderCollectionViewCell: UICollectionViewCell {
     var delegate: FileCollectionViewCellDelegate!
     
     @IBAction func didTapOptionsButton(_ sender: Any) {
-        self.delegate.presentOptionsPopover(sender)
+        self.delegate.presentFileOptionsPopover(sender)
     }
 }
