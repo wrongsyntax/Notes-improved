@@ -98,7 +98,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
-            logger.log(level: .error, "Error initializing FileManager: \(error)")
+            logger.log(level: .error, "ERROR Initializing FileManager: \(error)")
         }
         return nil
     }
@@ -114,7 +114,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
-            logger.log(level: .error, "Error getting files: \(error)")
+            logger.log(level: .error, "ERROR Getting files: \(error)")
         }
         return nil
     }

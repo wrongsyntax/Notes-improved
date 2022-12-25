@@ -54,7 +54,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
         } catch let error as NSError {
             let errorAlert = UIAlertController(title: "Error Creating Folder", message: "\(error)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
-            logger.log(level: .error, "Error creating folder: \(error)")
+            logger.log(level: .error, "ERROR Creating folder: \(error)")
         }
     }
     
