@@ -97,7 +97,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             return ["documents": documentsDirectoryURL]
         } catch let error as NSError {
             self.present(buildErrorAlert(error: error, attemptedAction: "Initializing FileManager"), animated: true)
-            logError(logger, error: error, attemptedAction: "Initializing FileManager")
+            errorLog(logger, error: error, attemptedAction: "Initializing FileManager")
         }
         return nil
     }
@@ -112,7 +112,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             return contents
         } catch let error as NSError {
             self.present(buildErrorAlert(error: error, attemptedAction: "Getting files"), animated: true)
-            logError(logger, error: error, attemptedAction: "Getting files")
+            errorLog(logger, error: error, attemptedAction: "Getting files")
         }
         return nil
     }
