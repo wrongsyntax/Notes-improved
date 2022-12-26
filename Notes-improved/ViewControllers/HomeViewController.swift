@@ -19,6 +19,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         initializeNavBar()
         initializeCreationButton()
     }
+    
+    // Automatically reloads filesCollectionView
+    override func viewDidLayoutSubviews() {
+        filesCollectionView.reloadData()
+    }
 
     // MARK: Nav Bar
     private func initializeNavBar() {
