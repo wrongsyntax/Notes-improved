@@ -29,19 +29,21 @@ class FileOptionsPopoverViewController: UIViewController {
     private func trashFile(_ fileToTrash: URL) {
         do {
             let rootURL: URL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            var destinationURL: URL = rootURL.appending(path: ".Trash").appending(path: fileToTrash.lastPathComponent)
+            let trashURL: URL = rootURL.appending(path: ".Trash")
+            var destinationURL: URL = trashURL.appending(path: fileToTrash.lastPathComponent)
             
             if FileManager.default.fileExists(atPath: destinationURL.path()) {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .short
                 dateFormatter.timeStyle = .short
-                destinationURL = destinationURL.appending(path: dateFormatter.string(from: Date()))
+                // Update destinationURL to include date
+                destinationURL = trashURL.appending(path: fileToTrash.lastPathComponent + dateFormatter.string(from: Date()))
                 try FileManager.default.moveItem(at: fileToTrash, to: destinationURL)
             } else {
                 try FileManager.default.moveItem(at: fileToTrash, to: destinationURL)
             }
             
-            successLog(logger, message: "Deleted file: \(fileToTrash.lastPathComponent) -> \(destinationURL.lastPathComponent)")
+            successLog(logger, message: "Deleted file: \(fileToTrash) -> \(destinationURL)")
         } catch let error as NSError {
             self.present(buildErrorAlert(error: error, attemptedAction: "Deleting item"), animated: true)
             errorLog(logger, error: error, attemptedAction: "Deleting item")
