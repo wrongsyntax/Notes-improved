@@ -43,6 +43,8 @@ class FileOptionsPopoverViewController: UIViewController {
             }
             
             successLog(logger, message: "Deleted file: \(fileToTrash) -> \(destinationURL)")
+            
+            self.dismiss(animated: true)
         } catch let error as NSError {
             self.present(buildErrorAlert(error: error, attemptedAction: "Deleting item"), animated: true)
             errorLog(logger, error: error, attemptedAction: "Deleting item")

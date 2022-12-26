@@ -36,8 +36,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let debugImage = UIImage(systemName: "ant.circle", withConfiguration: hierarchicalConfig(UIColor.systemYellow))
         let debugBarButton = UIBarButtonItem(image: debugImage, style: .plain, target: self, action: #selector(didTapDebugButton))
         
-        // Add items
+        let trashImage = UIImage(systemName: "trash.circle", withConfiguration: hierarchicalConfig(UIColor.label))
+        let trashBarButton = UIBarButtonItem(image: trashImage, style: .plain, target: self, action: #selector(didTapTrashButton))
+        
+        // Add items (furthest right first)
         navBarRightItems.append(settingsBarButton)
+        navBarRightItems.append(trashBarButton)
         if UserDefaults.showDebugButtonInNavBar {
             navBarRightItems.append(debugBarButton)
         }
@@ -51,6 +55,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @objc func didTapDebugButton() {
         performSegue(withIdentifier: "homeViewToDebugViewSegue", sender: self)
+    }
+    
+    @objc func didTapTrashButton() {
+        infoLog(logger, message: "Trash wants to be accessed")
     }
     
     // MARK: Creation Button

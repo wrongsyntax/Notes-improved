@@ -301,7 +301,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Use system double-tap setting" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-5F-7sL">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Use system double-tap setting" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-5F-7sL">
                                 <rect key="frame" x="627" y="311" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -409,10 +409,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-jl-L15">
-                                <rect key="frame" x="64" y="58" width="74" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-jl-L15">
+                                <rect key="frame" x="16" y="95" width="168" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="cs4-jV-Yyc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Delete">
+                                    <imageReference key="image" image="trash" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="didTapDeleteButton:" destination="Cew-sN-3o0" eventType="touchUpInside" id="WLE-SZ-D5w"/>
                                 </connections>
@@ -421,9 +426,9 @@
                         <viewLayoutGuide key="safeArea" id="l4n-i0-Iek"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5sp-jl-L15" firstAttribute="leading" secondItem="l4n-i0-Iek" secondAttribute="leading" constant="64" id="F1o-WX-Zlx"/>
-                            <constraint firstItem="5sp-jl-L15" firstAttribute="top" secondItem="l4n-i0-Iek" secondAttribute="top" constant="34" id="FSx-vd-gil"/>
-                            <constraint firstItem="5sp-jl-L15" firstAttribute="centerY" secondItem="Cpg-sJ-xJR" secondAttribute="centerY" id="Xon-RH-kbo"/>
+                            <constraint firstItem="5sp-jl-L15" firstAttribute="leading" secondItem="l4n-i0-Iek" secondAttribute="leading" constant="16" id="PCs-Nw-e5c"/>
+                            <constraint firstItem="l4n-i0-Iek" firstAttribute="trailing" secondItem="5sp-jl-L15" secondAttribute="trailing" constant="16" id="Won-BN-N4O"/>
+                            <constraint firstItem="l4n-i0-Iek" firstAttribute="bottom" secondItem="5sp-jl-L15" secondAttribute="bottom" constant="20" id="q9M-ps-hJV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hfr-W0-oh5"/>
@@ -434,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zi9-aS-6je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1069" y="-1152"/>
+            <point key="canvasLocation" x="-1069.3220338983051" y="-1152.439024390244"/>
         </scene>
         <!--Documents-->
         <scene sceneID="BC8-l1-p7h">
@@ -648,11 +653,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq6-WT-RSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tvw-rO-nzP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1043" y="-304"/>
+            <point key="canvasLocation" x="-1043.3898305084747" y="-304.39024390243901"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w6h-FG-hUp"/>
+        <segue reference="Nee-dc-DSK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemRedColor"/>
     <resources>
@@ -670,6 +675,7 @@
         <image name="ladybug" catalog="system" width="128" height="122"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.067000001668930054" green="0.68199998140335083" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
