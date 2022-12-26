@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8611D1472959484C00B92DA1 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611D1462959484C00B92DA1 /* ErrorHandler.swift */; };
+		8611D1472959484C00B92DA1 /* ErrorHandlerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611D1462959484C00B92DA1 /* ErrorHandlerAlert.swift */; };
+		8611D14A29594C5A00B92DA1 /* LoggingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611D14929594C5A00B92DA1 /* LoggingFunctions.swift */; };
 		861267472931A83E005F8095 /* FilesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861267462931A83E005F8095 /* FilesView.xib */; };
 		86704992292C88B4005B94C3 /* Notes-improved.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86704990292C88B4005B94C3 /* Notes-improved.xcdatamodeld */; };
 		86A443C2292609C4004F9ED6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A443C1292609C4004F9ED6 /* UIView.swift */; };
@@ -36,7 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8611D1462959484C00B92DA1 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		8611D1462959484C00B92DA1 /* ErrorHandlerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerAlert.swift; sourceTree = "<group>"; };
+		8611D14929594C5A00B92DA1 /* LoggingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingFunctions.swift; sourceTree = "<group>"; };
 		861267462931A83E005F8095 /* FilesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilesView.xib; sourceTree = "<group>"; };
 		86704991292C88B4005B94C3 /* Notes-improved.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Notes-improved.xcdatamodel"; sourceTree = "<group>"; };
 		86A443C1292609C4004F9ED6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -81,7 +83,8 @@
 		8611D14829594B5400B92DA1 /* HelperFunctions */ = {
 			isa = PBXGroup;
 			children = (
-				8611D1462959484C00B92DA1 /* ErrorHandler.swift */,
+				8611D1462959484C00B92DA1 /* ErrorHandlerAlert.swift */,
+				8611D14929594C5A00B92DA1 /* LoggingFunctions.swift */,
 			);
 			path = HelperFunctions;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				86EE0E692924C97400063B8F /* CanvasViewController.swift in Sources */,
 				86EE0E552924C8D300063B8F /* AppDelegate.swift in Sources */,
+				8611D14A29594C5A00B92DA1 /* LoggingFunctions.swift in Sources */,
 				86A443C2292609C4004F9ED6 /* UIView.swift in Sources */,
 				86EE0E572924C8D300063B8F /* SceneDelegate.swift in Sources */,
 				86F136D3293C39AE00426B4B /* FilesView.swift in Sources */,
@@ -275,7 +279,7 @@
 				86EF77192929847400B28E1C /* HomeViewController.swift in Sources */,
 				86EE0E6D2924C98100063B8F /* SettingsViewController.swift in Sources */,
 				86704992292C88B4005B94C3 /* Notes-improved.xcdatamodeld in Sources */,
-				8611D1472959484C00B92DA1 /* ErrorHandler.swift in Sources */,
+				8611D1472959484C00B92DA1 /* ErrorHandlerAlert.swift in Sources */,
 				86F136CF293B127A00426B4B /* CreationPopoverViewController.swift in Sources */,
 				86AC20F1293D3B0300F8C682 /* FileOptionsPopoverViewController.swift in Sources */,
 			);
