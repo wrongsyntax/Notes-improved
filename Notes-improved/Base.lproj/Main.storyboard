@@ -252,9 +252,8 @@
                                 <color key="textColor" name="MaxValColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmz-a0-nPG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmz-a0-nPG">
                                 <rect key="frame" x="273" y="685" width="158" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Reset All Settings"/>
                                 <connections>
@@ -312,6 +311,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qp7-pf-A0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qp7-pf-A0C" firstAttribute="bottom" secondItem="Tmz-a0-nPG" secondAttribute="bottom" constant="20" id="dkf-jb-vvz"/>
+                            <constraint firstItem="Tmz-a0-nPG" firstAttribute="centerX" secondItem="TVs-ww-XWJ" secondAttribute="centerX" id="nDv-Ro-Znr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="Bs3-Wl-mGW">
                         <imageReference key="image" image="gear" catalog="system" symbolScale="medium"/>

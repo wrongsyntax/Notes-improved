@@ -101,15 +101,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         do {
             let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             
-            let trashDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Trash")
-            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
-                try FileManager.default.createDirectory(at: trashDirectoryURL, withIntermediateDirectories: true)
-            }
-            
-            let templatesDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Templates")
-            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
-                try FileManager.default.createDirectory(at: templatesDirectoryURL, withIntermediateDirectories: true)
-            }
+//            let trashDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Trash")
+//            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
+//                try FileManager.default.createDirectory(at: trashDirectoryURL, withIntermediateDirectories: true)
+//            }
+//
+//            let templatesDirectoryURL: URL = documentsDirectoryURL.appending(path: ".Templates")
+//            if !FileManager.default.fileExists(atPath: trashDirectoryURL.path()) {
+//                try FileManager.default.createDirectory(at: templatesDirectoryURL, withIntermediateDirectories: true)
+//            }
             
             // Templates will also be here in the future probably
             return ["documents": documentsDirectoryURL]
@@ -129,8 +129,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let contents = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
             return contents
         } catch let error as NSError {
-            self.present(buildErrorAlert(error: error, attemptedAction: "Getting files"), animated: true)
-            errorLog(logger, error: error, attemptedAction: "Getting files")
+            self.present(buildErrorAlert(error: error, attemptedAction: "Getting files in \(directory.lastPathComponent)"), animated: true)
+            errorLog(logger, error: error, attemptedAction: "Getting files in \(directory.lastPathComponent)")
         }
         return nil
     }
