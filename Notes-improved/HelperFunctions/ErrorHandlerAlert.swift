@@ -1,5 +1,5 @@
 //
-//  ErrorHandler.swift
+//  ErrorHandlerAlert.swift
 //  Notes-improved
 //
 //  Created by Uzair Tariq on 2022-12-25.
@@ -15,8 +15,4 @@ public func buildErrorAlert(error: NSError, attemptedAction: String) -> UIAlertC
     errorAlert.addAction(UIAlertAction(title: "Dismiss", style: .default))
     
     return errorAlert
-}
-
-public func logError(_ logger: Logger, error: NSError, attemptedAction: String) {
-    logger.log(level: .error, "ERROR \(attemptedAction) \n\t \(error)")
 }
