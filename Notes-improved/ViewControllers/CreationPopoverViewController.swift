@@ -52,7 +52,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
             try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)
             logger.log(level: .info, "Creating new directory: \(newPath)")
         } catch let error as NSError {
-            let errorAlert = UIAlertController(title: "Error Creating Folder", message: "\(error)", preferredStyle: .alert)
+            let errorAlert = UIAlertController(title: "Error Creating Folder", message: "\(error.localizedDescription)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
             logger.log(level: .error, "ERROR Creating folder: \(error)")
         }

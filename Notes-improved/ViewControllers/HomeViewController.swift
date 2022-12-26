@@ -96,7 +96,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             // Templates will also be here in the future probably
             return ["documents": documentsDirectoryURL]
         } catch let error as NSError {
-            let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error)", preferredStyle: .alert)
+            let errorAlert = UIAlertController(title: "Error Initializing FileManager", message: "\(error.localizedDescription)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
             logger.log(level: .error, "ERROR Initializing FileManager: \(error)")
         }
@@ -112,7 +112,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let contents = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
             return contents
         } catch let error as NSError {
-            let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error)", preferredStyle: .alert)
+            let errorAlert = UIAlertController(title: "Error Getting Files", message: "\(error.localizedDescription)", preferredStyle: .alert)
             self.present(errorAlert, animated: true)
             logger.log(level: .error, "ERROR Getting files: \(error)")
         }

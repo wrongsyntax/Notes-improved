@@ -27,7 +27,15 @@ class FileOptionsPopoverViewController: UIViewController {
     }
     
     private func trashFile(_ fileToTrash: URL) {
-        logger.log(level: .info, "TRASH FILE: \(fileToTrash)")
-         
+        do {
+            let rootURL: URL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            
+            let destinationURL: URL = rootURL.appending(path: ".Trash").appending(path: fileToTrash.lastPathComponent)
+            
+            try FileManager.default.moveItem(at: fileToTrash, to: destinationURL)
+        } catch let error as NSError {
+            self.present(buildErrorAlert(error: error, attemptedAction: "Deleting item"), animated: true)
+            logError(logger, error: error, attemptedAction: "Deleting item")
+        }
     }
 }
