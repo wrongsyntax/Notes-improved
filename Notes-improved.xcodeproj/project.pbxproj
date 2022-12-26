@@ -78,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8611D14829594B5400B92DA1 /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				8611D1462959484C00B92DA1 /* ErrorHandler.swift */,
+			);
+			path = HelperFunctions;
+			sourceTree = "<group>";
+		};
 		861267452931A818005F8095 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +166,7 @@
 				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
 				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
 				86EE0E622924C8D800063B8F /* Info.plist */,
-				8611D1462959484C00B92DA1 /* ErrorHandler.swift */,
+				8611D14829594B5400B92DA1 /* HelperFunctions */,
 			);
 			path = "Notes-improved";
 			sourceTree = "<group>";

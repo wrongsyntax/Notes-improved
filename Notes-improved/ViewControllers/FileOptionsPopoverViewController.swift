@@ -24,6 +24,7 @@ class FileOptionsPopoverViewController: UIViewController {
     
     @IBAction func didTapDeleteButton(_ sender: UIButton) {
         trashFile(self.sendingURL)
+        
     }
     
     private func trashFile(_ fileToTrash: URL) {
