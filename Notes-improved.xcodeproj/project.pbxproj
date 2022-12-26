@@ -160,16 +160,16 @@
 			isa = PBXGroup;
 			children = (
 				86EF77172929828B00B28E1C /* ViewControllers */,
+				8611D14829594B5400B92DA1 /* HelperFunctions */,
 				86704993292C906A005B94C3 /* UIViews */,
 				861267452931A818005F8095 /* CustomViews */,
+				86B979D529331EB000E4487F /* Assets */,
 				86EE0E5A2924C8D300063B8F /* Main.storyboard */,
 				86EE0E5F2924C8D800063B8F /* LaunchScreen.storyboard */,
-				86B979D529331EB000E4487F /* Assets */,
 				86704990292C88B4005B94C3 /* Notes-improved.xcdatamodeld */,
 				86EE0E542924C8D300063B8F /* AppDelegate.swift */,
 				86EE0E562924C8D300063B8F /* SceneDelegate.swift */,
 				86EE0E622924C8D800063B8F /* Info.plist */,
-				8611D14829594B5400B92DA1 /* HelperFunctions */,
 			);
 			path = "Notes-improved";
 			sourceTree = "<group>";

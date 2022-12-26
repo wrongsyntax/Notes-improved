@@ -24,6 +24,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLayoutSubviews() {
         filesCollectionView.reloadData()
     }
+    // Reload CollectionView whenever any popover is dismissed by user
+    // Probably not necessary anymore
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        filesCollectionView.reloadData()
+    }
 
     // MARK: Nav Bar
     private func initializeNavBar() {
@@ -156,11 +161,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.delegate = self  // For popover
             return cell
         }
-    }
-    
-    // Reload CollectionView whenever any popover is dismissed by user
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        filesCollectionView.reloadData()
     }
 }
 
