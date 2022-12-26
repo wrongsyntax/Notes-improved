@@ -22,5 +22,5 @@ public func warningLog(_ logger: Logger, message: String) {
 }
 
 public func errorLog(_ logger: Logger, error: NSError, attemptedAction: String) {
-    logger.log(level: .error, "🔴 ERROR \(attemptedAction) \n\(error)")
+    logger.log(level: .error, "🔴 ERROR \(attemptedAction): \(error)")
 }

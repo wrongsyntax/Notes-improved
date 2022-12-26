@@ -23,7 +23,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
 
     @IBAction func didTapCreateNewDocument(_ sender: Any) {
         let currentDirectory = homeViewController.currentDirectoryURL
-        print("create new document in \(String(describing: currentDirectory))")
+        infoLog(logger, message: "Create new document in \(String(describing: currentDirectory))")
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
@@ -48,7 +48,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
         
         do {
             try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)
-            infoLog(logger, message: "Creating new directory: \(newPath)")
+            successLog(logger, message: "Created new directory: \(newPath)")
         } catch let error as NSError {
             self.present(buildErrorAlert(error: error, attemptedAction: "Creating folder"), animated: true)
             errorLog(logger, error: error, attemptedAction: "Creating folder")
