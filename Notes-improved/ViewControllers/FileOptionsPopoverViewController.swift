@@ -34,8 +34,7 @@ class FileOptionsPopoverViewController: UIViewController {
             
             if FileManager.default.fileExists(atPath: destinationURL.path()) {
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .short
-                dateFormatter.timeStyle = .short
+                dateFormatter.dateFormat = "HH-mm-ss"
                 // Update destinationURL to include date
                 destinationURL = trashURL.appending(path: fileToTrash.lastPathComponent + dateFormatter.string(from: Date()))
                 try FileManager.default.moveItem(at: fileToTrash, to: destinationURL)
