@@ -68,7 +68,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @objc func didTapTrashButton() {
-        infoLog(logger, message: "Trash wants to be accessed")
+        let trashViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        trashViewController.currentDirectoryURL = self.rootDirectoryURL.appending(path: ".Trash")
+        trashViewController.title = "Trash"
+        self.navigationController?.pushViewController(trashViewController, animated: true)
     }
     
     // MARK: Creation Button
