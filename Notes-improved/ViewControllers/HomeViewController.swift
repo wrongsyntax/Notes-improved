@@ -12,11 +12,14 @@ import UIKit
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate {
     
     let logger = Logger(subsystem: "UzairTariq.Notes-imporoved", category: "HomeView")
+    
+    // MARK: Initialize View
+    var viewTitle: String = "Notes(im)"
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeNavBar()
+        initializeNavBar(navTitle: self.viewTitle)
         initializeCreationButton()
     }
     
@@ -31,8 +34,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     // MARK: Nav Bar
-    private func initializeNavBar() {
-        navigationItem.title = "Notes(im)"
+    private func initializeNavBar(navTitle: String) {
+        navigationItem.title = navTitle
         
         var navBarRightItems: [UIBarButtonItem] = []
         let hierarchicalConfig = { (colour: UIColor) -> UIImage.SymbolConfiguration in
@@ -70,7 +73,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @objc func didTapTrashButton() {
         let trashViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
         trashViewController.currentDirectoryURL = self.rootDirectoryURL.appending(path: ".Trash")
-        trashViewController.title = "Trash"
+        trashViewController.viewTitle = "Trash"
         self.navigationController?.pushViewController(trashViewController, animated: true)
     }
     
