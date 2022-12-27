@@ -10,7 +10,8 @@ import os
 import Foundation
 
 public func successLog(_ logger: Logger, message: String) {
-    logger.log(level: .info, "🟢 \(message)")
+    // Comment out to disable all success logs
+    logger.log(level: .info, "✅ \(message)")
 }
 
 public func infoLog(_ logger: Logger, message: String) {
@@ -18,9 +19,9 @@ public func infoLog(_ logger: Logger, message: String) {
 }
 
 public func warningLog(_ logger: Logger, message: String) {
-    logger.log(level: .debug, "🟡 \(message)")
+    logger.log(level: .debug, "⚠️ \(message)")
 }
 
 public func errorLog(_ logger: Logger, error: NSError, attemptedAction: String) {
-    logger.log(level: .error, "🔴 ERROR \(attemptedAction): \(error)")
+    logger.log(level: .error, "🛑 ERROR \(attemptedAction): \(error)")
 }
