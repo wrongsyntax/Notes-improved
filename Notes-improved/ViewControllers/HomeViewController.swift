@@ -25,6 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     // Automatically reloads filesCollectionView
+    // BUG: Causes FileOptionsPopover to appear at cell mirrored across centre cell
     override func viewDidLayoutSubviews() {
         filesCollectionView.reloadData()
     }
