@@ -71,10 +71,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @objc func didTapTrashButton() {
-        let trashViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
-        trashViewController.currentDirectoryURL = self.rootDirectoryURL.appending(path: ".Trash")
-        trashViewController.viewTitle = "Trash"
-        self.navigationController?.pushViewController(trashViewController, animated: true)
+        navigateToFolder(at: rootDirectoryURL.appending(path: ".Trash"), viewTitle: "Trash")
     }
     
     // MARK: Creation Button
@@ -93,7 +90,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func presentCreationPopover(_ sender: Any) {
-        let creationPopover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "creationPopoverViewController")
+        let creationPopover: CreationPopoverViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "creationPopoverViewController") as! CreationPopoverViewController
         creationPopover.modalPresentationStyle = .popover
         creationPopover.popoverPresentationController?.permittedArrowDirections = .down
         creationPopover.popoverPresentationController?.delegate = self
@@ -141,6 +138,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return nil
     }
     
+    // MARK: Navigation b/w Folders
+    func navigateToFolder(at directory: URL, viewTitle: String? = nil) {
+        let nextFolderViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        nextFolderViewController.currentDirectoryURL = directory
+        // BUG: viewTitle argument still required despite default value
+        nextFolderViewController.viewTitle = viewTitle ?? directory.lastPathComponent
+        self.navigationController?.pushViewController(nextFolderViewController, animated: true)
+    }
+    
+    // MARK: CollectionView
     @IBOutlet weak var filesCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -186,6 +193,7 @@ extension HomeViewController: FileCollectionViewCellDelegate {
 
 protocol FileCollectionViewCellDelegate {
     func presentFileOptionsPopover(_ sender: Any, senderURL: URL)
+    func navigateToFolder(at directory: URL, viewTitle: String?)
 }
 
 // MARK: CollectionView Cells
@@ -208,5 +216,10 @@ class FolderCollectionViewCell: UICollectionViewCell {
     
     @IBAction func didTapOptionsButton(_ sender: Any) {
         self.delegate.presentFileOptionsPopover(sender, senderURL: associatedFolder)
+    }
+    
+    @IBAction func didTapFolder(_ sender: AnyObject) {
+        // A bit hacked by adding a new button but should work for now
+        self.delegate.navigateToFolder(at: associatedFolder, viewTitle: nil)
     }
 }

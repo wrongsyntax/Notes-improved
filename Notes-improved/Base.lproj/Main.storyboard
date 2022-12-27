@@ -552,6 +552,15 @@
                                                         <action selector="didTapOptionsButton:" destination="lXB-BY-Fs1" eventType="touchUpInside" id="SHv-0Q-FUY"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tq3-zk-hcT" userLabel="CellButton">
+                                                    <rect key="frame" x="8" y="8" width="99" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapFolder:" destination="lXB-BY-Fs1" eventType="touchUpInside" id="efq-MC-REa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="115" height="166"/>
