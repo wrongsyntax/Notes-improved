@@ -12,6 +12,7 @@ import UIKit
 class CreationPopoverViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
     
     let logger = Logger(subsystem: "UzairTariq.Notes-improved", category: "CreationPopover")
+    public var sendingURL: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
     private let homeViewController = HomeViewController(nibName: nil, bundle: nil)
 
     @IBAction func didTapCreateNewDocument(_ sender: Any) {
-        let currentDirectory = homeViewController.currentDirectoryURL
-        infoLog(logger, message: "Create new document in \(String(describing: currentDirectory))")
+        infoLog(logger, message: "Create new document in \(String(describing: sendingURL))")
     }
     
     @IBAction func didTapCreateNewFolder(_ sender: Any) {
@@ -44,7 +44,7 @@ class CreationPopoverViewController: UIViewController, UIAdaptivePresentationCon
     }
     
     private func createNewDirectory(called newDirectoryName: String) {
-        let newPath = homeViewController.currentDirectoryURL.appending(path: newDirectoryName)
+        let newPath = sendingURL.appending(path: newDirectoryName)
         
         do {
             try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)

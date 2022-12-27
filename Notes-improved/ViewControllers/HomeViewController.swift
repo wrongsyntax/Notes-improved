@@ -96,6 +96,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         creationPopover.popoverPresentationController?.delegate = self
         creationPopover.popoverPresentationController?.sourceView = sender as? UIView
         creationPopover.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
+        creationPopover.sendingURL = currentDirectoryURL
         self.present(creationPopover, animated: true)
     }
     
