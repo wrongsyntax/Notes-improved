@@ -176,10 +176,19 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             return cell
         } else {
             let cell = filesCollectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath as IndexPath) as! FolderCollectionViewCell
+            
             cell.folderName.text = contents[indexPath.row].lastPathComponent
-            cell.folderContentCount.text = String(getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0) + " items"
+            
+            let itemCount: Int = getContentsInDirectory(at: contents[indexPath.row])?.count ?? 0
+            if itemCount == 1 {
+                cell.folderContentCount.text = String(itemCount) + " item"
+            } else {
+                cell.folderContentCount.text = String(itemCount) + " items"
+            }
+            
             cell.associatedFolder = contents[indexPath.row]
             cell.delegate = self  // For popover
+            
             return cell
         }
     }
