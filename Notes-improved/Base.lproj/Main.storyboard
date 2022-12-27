@@ -522,7 +522,7 @@
                                                     <rect key="frame" x="12" y="40" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemBlueColor"/>
-                                                    <imageReference key="image" image="folder.fill" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="FolderImage" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5c3-ci-IvY">
@@ -673,6 +673,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemRedColor"/>
     <resources>
+        <image name="FolderImage" width="185" height="130"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="decrease.quotelevel" catalog="system" width="94" height="128"/>
         <image name="doc" catalog="system" width="115" height="128"/>
@@ -681,7 +682,6 @@
         <image name="dot.squareshape" catalog="system" width="128" height="114"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="92"/>
-        <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="increase.quotelevel" catalog="system" width="128" height="106"/>
         <image name="ladybug" catalog="system" width="128" height="122"/>
