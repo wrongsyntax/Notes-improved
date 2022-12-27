@@ -79,16 +79,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: Creation Button
     @IBOutlet weak var creationButtonOutlet: UIButton!
     
-    private func initializeCreationButton(show: Bool = true) {
+    private func initializeCreationButton() {
         let shadowColour: UIColor = UIColor(named: "AccentColor") ?? UIColor.systemRed
+        
         if !self.showCreateButton {
-            creationButtonOutlet.layer.opacity = 0
+            hideCreationButton()
             creationButtonOutlet.isEnabled = false
         }
+        
         let shadowOpacity: Float = 0.5
         let shadowOffset: CGSize = .zero
         let shadowRadius: CGFloat = 10
         creationButtonOutlet.addDropShadow(colour: shadowColour, opacity: shadowOpacity, offset: shadowOffset, radius: shadowRadius)
+    }
+    
+    private func hideCreationButton() {
+        creationButtonOutlet.layer.opacity = 0
+    }
+    
+    private func unhideCreationButton() {
+        creationButtonOutlet.layer.opacity = 1
     }
     
     @IBAction func didTapCreationButton(_ sender: UIButton) {
