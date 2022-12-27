@@ -12,7 +12,6 @@ import UIKit
 class FileOptionsPopoverViewController: UIViewController {
     
     let logger = Logger(subsystem: "UzairTariq.Notes-improved", category: "FileOptionsPopover")
-    
     public var sendingURL: URL!
 
     override func viewDidLoad() {

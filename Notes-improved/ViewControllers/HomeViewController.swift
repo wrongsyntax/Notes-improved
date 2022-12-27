@@ -226,7 +226,7 @@ class FolderCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func didTapFolder(_ sender: AnyObject) {
-        // A bit hacked by adding a new button but should work for now
+        // A bit hacked by adding CellButton in storyboard but should work for now
         self.delegate.navigateToFolder(at: associatedFolder, viewTitle: nil, allowCreation: true)
     }
 }
